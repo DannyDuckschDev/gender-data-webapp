@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Health Misinformation Online",
+        "category": ["Female Health", "Medicine"],
+        "types": ["Article", "Book"],
+        "book": {
+            "author": "Dr. Karen Tang",
+            "title": "It's Not Hysteria - The Truth About Pelvic Pain, Period Problems, and Your Gynaecologic Health",
+            "shopping_url": "https://www.penguin.co.uk/books/455657/its-not-hysteria-by-tang-dr-karen/9780241633823",
+            "publication_year": 2023
+        },
+        "article": {
+            "author": "Sara Stewart",
+            "date": "May 30, 2024",
+            "url": "https://www.bustle.com/entertainment/karen-tang-its-not-hysteria-book-womens-health"
+        }
+    },
+    {
+        "id": 2,
+        "name": "2023 - first crash test dummy modelled on the female body",
+        "category": ["Female Health", "Safety"],
+        "types": ["Article"],
+        "article": {
+            "author": "Aisling Ní Chúláin",
+            "date": "21 September 2023",
+            "url": "https://www.euronews.com/next/2023/09/21/this-is-the-first-crash-test-dummy-modelled-on-the-female-body-will-it-make-cars-safer-for"
+        }
+    }
+]
