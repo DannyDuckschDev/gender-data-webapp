@@ -1,7 +1,7 @@
-// src/pages/Periode.tsx
+// src/pages/Downloads.tsx
 import React from "react";
 
-const Periode: React.FC = () => {
+const Downloads: React.FC = () => {
     return (
         <div>
             <h1>Rund ums Thema Periode</h1>
@@ -15,4 +15,4 @@ const Periode: React.FC = () => {
     );
 };
 
-export default Periode;
+export default Downloads;

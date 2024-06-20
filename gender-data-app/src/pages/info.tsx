@@ -1,14 +1,15 @@
-//backup info.tsx
-
-// src/components/Info.tsx
 import React, { useState, useEffect } from 'react';
+import data from '../data/data.json';
+import { Content } from '../types';
 import '../styles/info.css';
 
-const categories = ["Female Health", "Medicine", "Safety", "Education"];
+const contents: Content[] = data;
 
 const Info: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const [currentCategory, setCurrentCategory] = useState('All');
+  const [categories, setCategories] = useState<string[]>([]);
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -16,19 +17,38 @@ const Info: React.FC = () => {
 
   const handleResize = () => {
     if (window.innerWidth <= 768) {
-        setIsMobile(true);
-        setIsSidebarOpen(false);
+      setIsMobile(true);
+      setIsSidebarOpen(false);
     } else {
-        setIsMobile(false);
-        setIsSidebarOpen(true);
+      setIsMobile(false);
+      setIsSidebarOpen(true);
     }
   };
 
-  useEffect(() =>  {
+  const filterContentsByCategory = () => {
+    if (currentCategory === 'All') {
+      return contents;
+    }
+    return contents.filter(content => content.category.includes(currentCategory));
+  };
+
+  const extractCategories = (contents: Content[]): string[] => {
+    const categoriesSet = new Set<string>();
+    contents.forEach(content => {
+      content.category.forEach(cat => categoriesSet.add(cat));
+    });
+    return Array.from(categoriesSet);
+  };
+
+  useEffect(() => {
     window.addEventListener('resize', handleResize);
-    handleResize(); //Initial check
+    handleResize(); // Initial check
+    const uniqueCategories = extractCategories(contents);
+    setCategories(uniqueCategories);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const filteredContents = filterContentsByCategory();
 
   return (
     <div className="info-page">
@@ -37,7 +57,9 @@ const Info: React.FC = () => {
         <h2>Categories</h2>
         <ul>
           {categories.map(category => (
-            <li key={category}>{category}</li>
+            <li key={category} onClick={() => setCurrentCategory(category)}>
+              {category}
+            </li>
           ))}
         </ul>
       </div>
@@ -45,12 +67,57 @@ const Info: React.FC = () => {
         {isMobile && <button className="menu-btn" onClick={toggleSidebar}>☰</button>}
         <h1>Information</h1>
         <div className="media-section">
-          <h2>Articles</h2>
-          {/* List of articles */}
-          <h2>Books</h2>
-          {/* List of books */}
-          <h2>Videos</h2>
-          {/* List of videos */}
+          <section className="container-content-articles">
+            <h2>Articles</h2>
+            {filteredContents.filter(content => content.types.includes('Article'))
+              .map(content => (
+                <div key={content.id} className="article-item">
+                  {content.article && (
+                    <>
+                      {content.article.image_url && <img src={content.article.image_url} alt={content.name} className="article-image" />}
+                      <div className="article-info">
+                        <h3>{content.name}</h3>
+                        <p>Author: {content.article.author}</p>
+                        <p>Date: {content.article.date}</p>
+                        <a href={content.article.url}>Read the article</a>
+                      </div>
+                    </>
+                  )}
+                </div>
+              ))}
+          </section>
+          <section className="container-content-books">
+            <h2>Books</h2>
+            {filteredContents.filter(content => content.types.includes('Book'))
+              .map(content => (
+                <div key={content.id} className="book-item">
+                  {content.book && (
+                    <>
+                      {content.book.cover_url && <img src={content.book.cover_url} alt={content.name} className="book-cover" />}
+                      <div className="book-info">
+                        <h3>{content.name}</h3>
+                        <p>Author: {content.book.author}</p>
+                        <p>Title: {content.book.title}</p>
+                        <p>Publication Year: {content.book.publication_year}</p>
+                        <a href={content.book.shopping_url}>Buy this book</a>
+                      </div>
+                    </>
+                  )}
+                </div>
+              ))}
+          </section>
+          <section className="container-content-videos">
+            <h2>Videos</h2>
+            {filteredContents.filter(content => content.types.includes('Video'))
+              .map(content => (
+                <div key={content.id} className='video-item'>
+                  <h3>{content.name}</h3>
+                  {content.video && (
+                    <a href={content.video.url}>Watch the video</a>
+                  )}
+                </div>
+              ))}
+          </section>
         </div>
       </div>
     </div>
