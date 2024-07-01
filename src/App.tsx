@@ -6,7 +6,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Info from './pages/info';
 import Downloads from './pages/Downloads';
-import Kontakt from './pages/Kontakt';
+import Contact from './pages/Contact';
 import './styles/main.css';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/info" element={<Info />} />
         <Route path="/downloads" element={<Downloads />} />
-        <Route path="/kontakt" element={<Kontakt />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </Router>

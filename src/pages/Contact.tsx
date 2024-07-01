@@ -1,7 +1,7 @@
 // src/pages/Kontakt.tsx
 import React from "react";
 
-const Kontakt: React.FC = () => {
+const Contact: React.FC = () => {
     return (
         <div>
             <h1>Kontakt</h1>
@@ -10,4 +10,4 @@ const Kontakt: React.FC = () => {
     );
 };
 
-export default Kontakt;
+export default Contact;
