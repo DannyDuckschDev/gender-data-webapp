@@ -54,6 +54,12 @@ const Info: React.FC = () => {
     <div className="info-page">
       <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <button className="close-btn" onClick={toggleSidebar}>×</button>
+        <h2>Media Types</h2>
+        <ul>
+          <li><a href="#article">Article</a></li>
+          <li><a href="#books">Books</a></li>
+          <li><a href="#videos">Videos</a></li>
+        </ul>
         <h2>Categories</h2>
         <ul>
           {categories.map(category => (
@@ -68,7 +74,7 @@ const Info: React.FC = () => {
         <h1>Information</h1>
         <div className="media-section">
           <section className="container-content-articles">
-            <h2>Articles</h2>
+            <h2 id='article'>Articles</h2>
             {filteredContents.filter(content => content.types.includes('Article'))
               .map(content => (
                 <div key={content.id} className="article-item">
@@ -87,7 +93,7 @@ const Info: React.FC = () => {
               ))}
           </section>
           <section className="container-content-books">
-            <h2>Books</h2>
+            <h2 id='books'>Books</h2>
             {filteredContents.filter(content => content.types.includes('Book'))
               .map(content => (
                 <div key={content.id} className="book-item">
@@ -107,7 +113,7 @@ const Info: React.FC = () => {
               ))}
           </section>
           <section className="container-content-videos">
-            <h2>Videos</h2>
+            <h2 id='videos'>Videos</h2>
             {filteredContents.filter(content => content.types.includes('Video'))
               .map(content => (
                 <div key={content.id} className='video-item'>
