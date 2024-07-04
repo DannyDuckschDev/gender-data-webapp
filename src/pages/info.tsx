@@ -3,18 +3,22 @@ import data from '../data/data.json';
 import { Content } from '../types';
 import '../styles/info.css';
 
+// Initialize the contents from the imported data
 const contents: Content[] = data;
 
 const Info: React.FC = () => {
+  // State variables for sidebar, mobile view, current category, and categories list
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [currentCategory, setCurrentCategory] = useState('All');
   const [categories, setCategories] = useState<string[]>([]);
 
+   // Function to toggle the sidebar's visibility
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+   // Handle window resize to adjust the view for mobile
   const handleResize = () => {
     if (window.innerWidth <= 768) {
       setIsMobile(true);
@@ -25,6 +29,7 @@ const Info: React.FC = () => {
     }
   };
 
+  // Filter contents by the current category
   const filterContentsByCategory = () => {
     if (currentCategory === 'All') {
       return contents;
@@ -32,6 +37,7 @@ const Info: React.FC = () => {
     return contents.filter(content => content.category.includes(currentCategory));
   };
 
+  // Extract unique categories from the contents
   const extractCategories = (contents: Content[]): string[] => {
     const categoriesSet = new Set<string>();
     contents.forEach(content => {
@@ -40,6 +46,12 @@ const Info: React.FC = () => {
     return Array.from(categoriesSet);
   };
 
+   // Reset filters to show all contents
+  const resetFilters = () => {
+    setCurrentCategory('All');
+  };
+
+  // useEffect to handle initial setup and window resize event listener
   useEffect(() => {
     window.addEventListener('resize', handleResize);
     handleResize(); // Initial check
@@ -48,10 +60,12 @@ const Info: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Get filtered contents based on the current category
   const filteredContents = filterContentsByCategory();
 
   return (
     <div className="info-page">
+      {/* Sidebar containing media types and categories */}
       <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <button className="close-btn" onClick={toggleSidebar}>×</button>
         <h2>Media Types</h2>
@@ -63,16 +77,20 @@ const Info: React.FC = () => {
         <h2>Categories</h2>
         <ul>
           {categories.map(category => (
-            <li key={category} onClick={() => setCurrentCategory(category)}>
-              {category}
+            <li key={category}>
+              <a href="#" onClick={() => setCurrentCategory(category)}>
+              {category}</a>
             </li>
           ))}
         </ul>
+        <button className='reset-btn' onClick={resetFilters}>Reset</button>
       </div>
+       {/* Main content area */}
       <div className={`content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
         {isMobile && <button className="menu-btn" onClick={toggleSidebar}>☰</button>}
         <h1>Information</h1>
         <div className="media-section">
+          {/* Section for articles */}
           <section className="container-content-articles">
             <h2 id='article'>Articles</h2>
             {filteredContents.filter(content => content.types.includes('Article'))
@@ -92,6 +110,7 @@ const Info: React.FC = () => {
                 </div>
               ))}
           </section>
+          {/* Section for books */}
           <section className="container-content-books">
             <h2 id='books'>Books</h2>
             {filteredContents.filter(content => content.types.includes('Book'))
@@ -112,6 +131,7 @@ const Info: React.FC = () => {
                 </div>
               ))}
           </section>
+          {/* Section for videos */}
           <section className="container-content-videos">
             <h2 id='videos'>Videos</h2>
             {filteredContents.filter(content => content.types.includes('Video'))

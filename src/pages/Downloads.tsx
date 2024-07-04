@@ -1,18 +1,25 @@
-// src/pages/Downloads.tsx
-import React from "react";
+import {useState} from "react";
 
-const Downloads: React.FC = () => {
+const PeriodenteeeRezept: React.FC = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
-        <div>
-            <h1>Rund ums Thema Periode</h1>
-            <p>Informationen und Rezepte für Menstruationsbeschwerden.</p>
-            {/*Link zum Download für Periodentee Rezpet,
-            Keyword "download" fehlt noch in a-tag*/}
-            <button>Periodentee Rezept</button>
-            <h2>Quellen zum Nachlesen</h2>
-            <a href="">Gerstoffe in Himbeerblättern</a>
+        <div className="accordion">
+            <h2 onClick={() => setIsOpen(!isOpen)}>Periodenteee Rezept</h2>
+            {isOpen && (
+                <div className="accordion-content">
+                    <h3>Zutaten</h3>
+                    <ul>
+                        <li>1 TL Kamillenblüten</li>
+                        <li>1 TL Fenchelsamen</li>
+                        <li>1 TL Schafgarbenkraut</li>
+                    </ul>
+                    <h3>Zubereitung</h3>
+                    <p>Die Zutaten mit kochendem Wasser übergießen und 10 Minuten ziehen lassen. Abseihen und genießen.</p>
+                </div>
+            )}
         </div>
     );
-};
+}
 
-export default Downloads;
+export default PeriodenteeeRezept;

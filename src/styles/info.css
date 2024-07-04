@@ -13,29 +13,33 @@
     background-color: var(--color-background);
     color: var(--color-text);
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /* Prevents overflow to keep the layout clean */
 }
 
 .sidebar {
     width: 190px;
     background-color: var(--color-sidebar-background);
-    padding: 2.25rem;
+    padding: 1.2rem;
     position: absolute;
     left: 0;
     height: 100%;
     transform: translateX(-100%);
     transition: transform 0.3s ease;
-    z-index: 10;
+    z-index: 10; /* Ensures the sidebar is above other elements */
 }
 
 .sidebar ul {
     list-style: none;
-    padding: 0;
+    padding: 0; /* Removes default padding for list */
 }
 
 .sidebar.open {
-    transform: translateX(0);
+    transform: translateX(0); /* Slides the sidebar into view */
 
+}
+
+.sidebar h2 {
+    font-size: 1.2rem; /* Adjusts heading size within the sidebar */
 }
 
 .close-btn {
@@ -46,8 +50,21 @@
     color: var(--color-close-btn);
     cursor: pointer;
     position: absolute;
-    top: -15px;
-    right: -15px;
+    top: -23px;
+    right: -23px;/* Positions the close button */
+}
+
+.reset-btn {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 0.75rem 2rem;;
+    border: none;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.reset-btn:hover {
+    background-color: var(--color-warning);  /* Changes color on hover */
 }
 
 .menu-btn {
@@ -60,13 +77,14 @@
     position: absolute;
     top: 20px;
     left: 20px;
-    z-index: 20;
+    z-index: 20; /* Ensures the menu button is above other elements */
+    background-color: var(--color-sidebar-background); /* Match the sidebar color */
 }
 
 .content {
     flex-grow: 1;
     padding: 20px;
-    overflow-y: auto;
+    overflow-y: auto; /* Allows vertical scrolling */
     display: flex;
     flex-direction: column;
     margin-left: 190px; /* Align with sidebar width */
@@ -94,7 +112,7 @@
     border: 2px solid var(--color-hover-border);
     border-radius: 8px;
     margin: 0.5rem 0.25rem;
-    padding: 0.25rem;
+    padding: 0.25rem; /* Adds padding for better spacing on hover*/
 }
 
 .article-item {
@@ -143,16 +161,16 @@
 
     .container-content-books,
     .container-content-videos {
-        flex: 1 1 45%;
+        flex: 1 1 45%; /*Adjust flex basis for better layot*/
     }
 
     .article-item {
-        flex-direction: row;
+        flex-direction: row; /*Aligns items in a row*/
     }
 
     .book-item {
         flex-direction: column;
-        align-items: center;
+        align-items: center; /*centers book items*/
     }
 }
 
@@ -172,11 +190,11 @@ h2 {
     }
 
     .close-btn {
-        display: block;
+        display: block; /* Shows the close button on small screens */
     }
 
     .menu-btn {
-        display: block;
+        display: block; /* Shows the menu button on small screens */
         background-color: var(--color-sidebar-background); /* Match the sidebar color */
     }
 
@@ -188,15 +206,15 @@ h2 {
     .container-content-articles,
     .container-content-books,
     .container-content-videos {
-        flex: 1 1 100%;
+        flex: 1 1 100%; /* Full width within the container */
     }
 
     .article-item {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: flex-start; /* Aligns items to the start */
     }
 
     .book-item {
-        text-align: center;
+        text-align: center; /* Centers text in book items */
     }
 }
