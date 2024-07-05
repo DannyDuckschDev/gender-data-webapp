@@ -31,4 +31,7 @@
     --input-border-color: #565655;
     --input-hover-border-color: #1abc9cc2;
 
+    /*download.css specific colors*/
+    --section-international-color: #b8860b;
+    --section-germany-color: #664082;
 }
