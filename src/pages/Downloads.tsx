@@ -1,6 +1,19 @@
 import React, { useState } from 'react';
 import '../styles/download.css';
 import periodTeaRecipePdf from '../assets/PeriodTeaRecipe.pdf';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import { MapContainer, Marker, TileLayer, Popup } from 'react-leaflet';
+import clinics from '../data/clinicForVictims.json';
+
+//Icon configuration for Leaflet
+const icon = L.icon({
+  iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 42],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
 
 const Download: React.FC = () => {
     const [isExpanded, setIsExpanded] = useState<{ [key: string]: boolean }>({});
@@ -100,19 +113,14 @@ const Download: React.FC = () => {
                 {isExpanded['dickPicsReport'] && (
                     <div className="card-content">
                         <p>The website helps you to easily and quickly file a report against unsolicited sexual pictures.</p>
-                        <button className="download-button" onClick={() => startDownload('dickPicsReport', '#')}>Go to Website</button>
-                        {downloadProgress['dickPicsReport'] !== undefined && (
-                            <div className="progress-bar">
-                                <div className="progress" style={{ width: `${downloadProgress['dickPicsReport']}%` }}></div>
-                            </div>
-                        )}
+                        <button className="download-button" onClick={() => startDownload('dickPicsReport', 'https://dickstinction.com/')}>Go to Website</button>
                     </div>
                 )}
             </div>
 
             <div className="download-card">
                 <div className="card-header" onClick={() => toggleExpand('victimClinic')}>
-                    <span>Find the nearest Opferambulanz / Outpatient Clinic for Victims</span>
+                    <span>Find the nearest Outpatient Clinic for Victims</span>
                     <button className="toggle-button">
                         {isExpanded['victimClinic'] ? '▲' : '▼'}
                     </button>
@@ -120,7 +128,22 @@ const Download: React.FC = () => {
                 {isExpanded['victimClinic'] && (
                     <div className="card-content">
                         <p>Victim and trauma outpatient clinics (OTA) are contact points in Germany, Austria and Switzerland for the acute care of victims of traumatizing events, especially victims of violent and sexual crimes.</p>
-                        <div className="map-placeholder">Map</div>
+                        <MapContainer center={[48.1351, 11.582]} zoom={12} style={{height: '400px', width:'100%' }}>
+                          <TileLayer 
+                          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                          ></TileLayer>
+                          {clinics.map((clinic, index) => (
+                            <Marker key={index} position={clinic.position} icon={icon}>
+                              <Popup>
+                                <strong>{clinic.name}</strong><br />
+                                Opening hours: {clinic.hours} <br />
+                                Address: {clinic.address} <br />
+                                Website: <a href={clinic.url}>Go to website</a><br />
+                              </Popup>
+                            </Marker>
+                          ))}
+                        </MapContainer>
                     </div>
                 )}
             </div>
