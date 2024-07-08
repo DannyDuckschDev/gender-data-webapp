@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Info from './pages/Info'; //Info.tsx
+import Knowledge from './pages/Knowledge'; 
+import Support from './pages/Support';
 import Downloads from './pages/Downloads';
 import Contact from './pages/Contact';
 import './styles/main.css';
@@ -15,9 +16,11 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/info" element={<Info />} />
+        <Route path="/knowledge" element={<Knowledge />} />
+        <Route path="/support" element={<Support />} />
         <Route path="/downloads" element={<Downloads />} />
         <Route path="/contact" element={<Contact />} />
+
       </Routes>
       <Footer />
     </Router>
