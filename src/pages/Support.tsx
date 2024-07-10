@@ -1,9 +1,12 @@
+// src/pages/Support.tsx
 import React, { useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, Marker, TileLayer, Popup } from 'react-leaflet';
 import clinics from '../data/clinicForVictims.json';
 import '../styles/support.css';
+import ScrollToTopButton from '../components/ScrollToTopButton';
+import '../styles/button.css';
 
 // Icon configuration for Leaflet
 const icon = L.icon({
@@ -75,26 +78,42 @@ const Support: React.FC = () => {
       </div>
       <div className="support-card map-card">
         <div className="map-card-content">
-          <span>Find the nearest Outpatient Clinic for Victims</span>
-          <p>Victim and trauma outpatient clinics (OTA) are contact points in Germany, Austria and Switzerland for the acute care of victims of traumatizing events, especially victims of violent and sexual crimes.</p>
-          <MapContainer center={[51.1657, 10.4515]} zoom={6} style={{ height: '400px', width: '100%' }}>
-            <TileLayer
-              url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            />
-            {clinicData.map((clinic: Clinic, index: number) => (
-              <Marker key={index} position={clinic.position} icon={icon}>
-                <Popup>
-                  <strong>{clinic.name}</strong><br />
-                  Opening hours: {clinic.hours} <br />
-                  Address: {clinic.address} <br />
-                  Website: <a href={clinic.url}>Go to website</a><br />
-                </Popup>
-              </Marker>
-            ))}
-          </MapContainer>
+        <h2><span>Find the nearest Outpatient Clinic for Victims</span></h2>
+        <p>
+        Victim and trauma outpatient clinics ("Opfer- und Trauerambulanz / OTA") are contact points in Germany, Austria and Switzerland for the acute care of victims of traumatizing events, especially victims of violent and sexual crimes.
+        </p>
+        <p>
+        According to recent EU statistics, <strong>one in four women in Germany</strong> will experience physical or sexual violence at some point in their lives, often within a domestic setting. In such cases, victims often find it difficult to immediately decide to file a report. This decision is frequently made some time after the event, by which point it may be too late to collect evidence.
+        </p>
+        <p>
+        Examinations should take place <em>as soon as possible after the incident</em>, potentially even at night. Crucial evidence can be collected in the first few hours following a crime, which might otherwise be lost forever. Therefore, contact with the violence clinic should occur without delay.
+        </p>
+        <p>
+        Victims receive <strong>confidential, free-of-charge, and legally admissible examinations</strong>. If they decide to press charges later, the anonymously collected evidence can be retrieved. The evidence is stored to be used when needed - sometimes up to 6 years. But the time limits differ from clinic to clinic. So please asked the medical staff at the clinic. Additionally, upon request, contact can be made with victim support organizations or anonymous telephone counseling services.
+        </p>
+        <p>
+        <strong>Note:</strong> Information provided without warranty. (Legal disclaimer)
+        </p>
+
+        <MapContainer center={[51.1657, 10.4515]} zoom={6} style={{ height: '800px', width: '100%' }}>
+        <TileLayer
+            url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
+        {clinicData.map((clinic: Clinic, index: number) => (
+            <Marker key={index} position={clinic.position} icon={icon}>
+            <Popup>
+                <strong className='clinic-name clinic-info'>{clinic.name}</strong><br />
+                <strong className='clinic-info'>Opening hours:</strong><br /> {clinic.hours} <br />
+                <strong className='clinic-info'>Address:</strong><br /> {clinic.address} <br />
+                <strong className='clinic-info'>Website:</strong> <a href={clinic.url}>Go to website</a><br />
+            </Popup>
+            </Marker>
+        ))}
+        </MapContainer>
         </div>
       </div>
+      <ScrollToTopButton />
     </div>
   );
 };

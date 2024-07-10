@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import data from '../data/data.json';
 import { Content } from '../types';
-import '../styles/info.css';
+import '../styles/knowledge.css';
+import ScrollToTopButton from '../components/ScrollToTopButton';
+import '../styles/button.css';
 
 // Initialize the contents from the imported data
 const contents: Content[] = data;
 
 const Info: React.FC = () => {
+
   // State variables for sidebar, mobile view, current category, and categories list
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [currentCategory, setCurrentCategory] = useState('All');
   const [categories, setCategories] = useState<string[]>([]);
 
-   // Function to toggle the sidebar's visibility
+  // Function to toggle the sidebar's visibility
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-   // Handle window resize to adjust the view for mobile
+  // Handle window resize to adjust the view for mobile
   const handleResize = () => {
     if (window.innerWidth <= 768) {
       setIsMobile(true);
@@ -46,7 +49,7 @@ const Info: React.FC = () => {
     return Array.from(categoriesSet);
   };
 
-   // Reset filters to show all contents
+  // Reset filters to show all contents
   const resetFilters = () => {
     setCurrentCategory('All');
   };
@@ -146,6 +149,8 @@ const Info: React.FC = () => {
           </section>
         </div>
       </div>
+      {/* Scroll-to-top button */}
+      <ScrollToTopButton/>
     </div>
   );
 };

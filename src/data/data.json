@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Health Misinformation Online",
-        "category": ["Female Health", "Medicine"],
+        "category": ["Female Health", "Medicine", "English Article"],
         "types": ["Article", "Book", "Video"],
         "book": {
             "author": "Dr. Karen Tang",
@@ -27,7 +27,7 @@
     {
         "id": 2,
         "name": "2023 - first crash test dummy modelled on the female body",
-        "category": ["Female Health", "Safety"],
+        "category": ["Female Health", "Safety", "English Article"],
         "types": ["Article"],
         "article": {
             "author": "Aisling Ní Chúláin",
@@ -35,5 +35,18 @@
             "image_url": "https://images.nordbayern.de/image/contentid/policy:1.12738198:1668955371/Eva_Dummy.jpg?f=2:1&h=630&m=FIT&w=1260&%24p%24f%24h%24m%24w=0320580",
             "url": "https://www.euronews.com/next/2023/09/21/this-is-the-first-crash-test-dummy-modelled-on-the-female-body-will-it-make-cars-safer-for"
         }
+    },
+    {
+        "id": 3,
+        "name": "Steigende Fallzahlen bei Opferambulanzen",
+        "category": ["Health", "Safety", "German Article"],
+        "types": ["Article"],
+        "article": {
+            "author": "Zeit Online / Deutsche Presseagentur",
+            "date": "25 December 2023",
+            "image_url": "https://img.zeit.de/news/2023-12/25/steigende-fallzahlen-bei-opferambulanzen-image-group/wide__660x371__desktop__scale_2",
+            "url": "https://www.zeit.de/news/2023-12/25/steigende-fallzahlen-bei-opferambulanzen"
+        }
     }
+
 ]

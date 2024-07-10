@@ -60,6 +60,7 @@ h2.germany {
     padding: 15px;
     background-color: var(--color-surface);
     color: var(--color-text);
+    display: block; /* Ensures that the content is displayed*/
 }
 
 .toggle-button {

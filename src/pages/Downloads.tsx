@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/download.css';
 import periodTeaRecipePdf from '../assets/PeriodTeaRecipe.pdf';
-
+import periodenTeeRezeptPdf from '../assets/PeriodenTeeRezept.pdf';
+import ScrollToTopButton from '../components/ScrollToTopButton';
+import '../styles/button.css';
 
 
 
@@ -10,8 +12,16 @@ const Download: React.FC = () => {
     const [downloadProgress, setDownloadProgress] = useState<{ [key: string]: number }>({});
 
     const toggleExpand = (key: string) => {
+        /*Debug output
+        console.log('Toggling', key); */
         setIsExpanded(prevState => ({ ...prevState, [key]: !prevState[key] }));
     };
+
+    /*Debug output if 'isExpanded' is correct
+    useEffect(() => {
+        console.log('isExpanded value', isExpanded);
+    }, [isExpanded]);
+    */
 
     const startDownload = (key: string, url: string) => {
         setDownloadProgress(prevState => ({ ...prevState, [key]: 0 }));
@@ -53,10 +63,16 @@ const Download: React.FC = () => {
                           <li>lemon (or alternatively orange)</li>
                         </ul>
                         <p>Preparation: Boil water, add herbs, let steep for 10 minutes, strain and enjoy.</p>
-                        <button className="download-button" onClick={() => startDownload('periodTea', periodTeaRecipePdf)}>Download Recipe</button>
-                        {downloadProgress['periodTea'] !== undefined && (
+                        <button className="download-button" onClick={() => startDownload('periodTeaEN', periodTeaRecipePdf)}>Download Recipe</button>
+                        {downloadProgress['periodTeaEN'] !== undefined && (
                             <div className="progress-bar">
-                                <div className="progress" style={{ width: `${downloadProgress['periodTea']}%` }}></div>
+                                <div className="progress" style={{ width: `${downloadProgress['periodTeaEN']}%` }}></div>
+                            </div>
+                        )}
+                        <button className="download-button" onClick={() => startDownload('periodTeaDE', periodenTeeRezeptPdf)}>Download Recipe German</button>
+                        {downloadProgress['periodTeaDE'] !== undefined && (
+                            <div className="progress-bar">
+                                <div className="progress" style={{ width: `${downloadProgress['periodTeaDE']}%` }}></div>
                             </div>
                         )}
                     </div>
@@ -74,18 +90,8 @@ const Download: React.FC = () => {
                     <div className="card-content">
                         <p>This app provides info about different groceries which are beneficial in different phases of the menstrual cycle.</p>
                         <p>It also includes specific workout routines for each phase.</p>
-                        <button className="download-button" onClick={() => startDownload('cycleSyncingAndroid', '#')}>Download App Android</button>
-                        <button className="download-button" onClick={() => startDownload('cycleSyncingIOS', '#')}>Download App IOS</button>
-                        {downloadProgress['cycleSyncingAndroid'] !== undefined && (
-                            <div className="progress-bar">
-                                <div className="progress" style={{ width: `${downloadProgress['cycleSyncingAndroid']}%` }}></div>
-                            </div>
-                        )}
-                        {downloadProgress['cycleSyncingIOS'] !== undefined && (
-                            <div className="progress-bar">
-                                <div className="progress" style={{ width: `${downloadProgress['cycleSyncingIOS']}%` }}></div>
-                            </div>
-                        )}
+                        <button className="download-button" onClick={() => startDownload('cycleSyncingAndroid', 'https://play.google.com/store/apps/details?id=com.twentyeight.app')}>Download App Android</button>
+                        <button className="download-button" onClick={() => startDownload('cycleSyncingIOS', 'https://apps.apple.com/de/app/28-track-period-cycle-syncing/id6443715544')}>Download App IOS</button>
                     </div>
                 )}
             </div>
@@ -107,6 +113,7 @@ const Download: React.FC = () => {
                     </div>
                 )}
             </div>
+            <ScrollToTopButton />
         </div>
     );
 };
