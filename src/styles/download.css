@@ -1,12 +1,9 @@
+/*Backup download.css*/
 /* src/styles/download.css */
 .download-page {
     padding: 20px;
     background-color: var(--color-background);
     color: var(--color-text);
-}
-
-.card-content li{
-    margin: 0.5rem 3rem;
 }
 
 h2.international {
@@ -60,7 +57,12 @@ h2.germany {
     padding: 15px;
     background-color: var(--color-surface);
     color: var(--color-text);
-    display: block; /* Ensures that the content is displayed*/
+    display: flex; /*use flexbox*/
+    flex-direction: column; /*align vertically*/
+}
+
+.card-content li{
+    margin: 0.5rem 3rem;
 }
 
 .toggle-button {
@@ -71,33 +73,42 @@ h2.germany {
     cursor: pointer;
 }
 
+.download-buttons{
+    display: flex;
+    gap: 0.25rem;
+}
+
+.button-with-loader{
+    display: flex;
+    align-items: center;
+    gap:0.15rem;
+}
+
 .download-button {
-    background-color: var(--color-primary);
+    background-color: var(--color-secondary);
     color: var(--color-text);
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    margin-right: 10px;
 }
 
 .download-button:hover {
-    background-color: var(--color-accent);
+    background-color: var(--color-warning);
 }
 
-.progress-bar {
-    width: 100%;
-    height: 10px;
-    background-color: var(--color-light);
-    border-radius: 5px;
-    margin-top: 10px;
+.loader{
+    border: 4px solid #e0e0e0; /*soft color for background*/
+    border-top: 4px solid #6200ea; /*dark color for progress*/
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 2s linear infinite; /*rotating animation*/
 }
 
-.progress {
-    height: 100%;
-    background-color: var(--color-primary);
-    border-radius: 5px;
-    transition: width 0.3s ease;
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
 }
 
 .map-placeholder {
