@@ -1,18 +1,37 @@
-// src/pages/Downloads.tsx
-import React from "react";
+// src/pages/DownloadPage.tsx
 
-const Downloads: React.FC = () => {
+import React from 'react';
+import contentData from '../data/downloadContent.json';
+import { ContentData, Section as SectionType } from '../types';
+import Section from '../components/Section';
+import ScrollToTopButton from '../components/ScrollToTopButton';
+import useDownloadProgress from '../hooks/useDownloadProgress';
+import useToggleExpand from '../hooks/useToggleExpand';
+import '../styles/download.css';
+import '../styles/button.css';
+
+// Initialize the contents from the imported data
+const contents: SectionType[] = (contentData as ContentData).sections;
+
+const DownloadPage: React.FC = () => {
+    const { isExpanded, toggleExpand } = useToggleExpand();
+    const { downloadProgress, startDownload } = useDownloadProgress();
+
     return (
-        <div>
-            <h1>Rund ums Thema Periode</h1>
-            <p>Informationen und Rezepte für Menstruationsbeschwerden.</p>
-            {/*Link zum Download für Periodentee Rezpet,
-            Keyword "download" fehlt noch in a-tag*/}
-            <button>Periodentee Rezept</button>
-            <h2>Quellen zum Nachlesen</h2>
-            <a href="">Gerstoffe in Himbeerblättern</a>
+        <div className="download-page">
+            {contents.map((section: SectionType) => (
+                <Section
+                    key={section.title}
+                    section={section}
+                    isExpanded={isExpanded}
+                    toggleExpand={toggleExpand}
+                    startDownload={startDownload}
+                    downloadProgress={downloadProgress}
+                />
+            ))}
+            <ScrollToTopButton />
         </div>
     );
 };
 
-export default Downloads;
+export default DownloadPage;

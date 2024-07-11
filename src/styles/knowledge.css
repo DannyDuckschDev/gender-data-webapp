@@ -1,0 +1,220 @@
+/* src/styles/Info.css */
+@import './variables.css';
+
+/* Global styles */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.info-page {
+    display: flex;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    height: 100vh;
+    overflow: hidden; /* Prevents overflow to keep the layout clean */
+}
+
+.sidebar {
+    width: 190px;
+    background-color: var(--color-sidebar-background);
+    padding: 1.2rem;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 10; /* Ensures the sidebar is above other elements */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0; /* Removes default padding for list */
+}
+
+.sidebar.open {
+    transform: translateX(0); /* Slides the sidebar into view */
+
+}
+
+.sidebar h2 {
+    font-size: 1.2rem; /* Adjusts heading size within the sidebar */
+}
+
+.close-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2.5em;
+    color: var(--color-close-btn);
+    cursor: pointer;
+    position: absolute;
+    top: -23px;
+    right: -23px;/* Positions the close button */
+}
+
+.reset-btn {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 0.75rem 2rem;;
+    border: none;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.reset-btn:hover {
+    background-color: var(--color-warning);  /* Changes color on hover */
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: var(--color-sidebar-text);
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 20; /* Ensures the menu button is above other elements */
+    background-color: var(--color-sidebar-background); /* Match the sidebar color */
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto; /* Allows vertical scrolling */
+    display: flex;
+    flex-direction: column;
+    margin-left: 190px; /* Align with sidebar width */
+}
+
+.media-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-grow: 1;
+}
+
+.container-content-articles,
+.container-content-books,
+.container-content-videos {
+    background-color: var(--color-container-background);
+    border-radius: 8px;
+    padding: 0.5rem;
+    flex: 1 1 100%;
+}
+
+.article-item:hover,
+.book-item:hover,
+.video-item:hover {
+    border: 2px solid var(--color-hover-border);
+    border-radius: 8px;
+    margin: 0.5rem 0.25rem;
+    padding: 0.25rem; /* Adds padding for better spacing on hover*/
+}
+
+.article-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.article-image {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.article-info {
+    flex-grow: 1;
+}
+
+.book-item {
+    text-align: center;
+}
+
+.book-cover {
+    width: 150px;
+    height: auto;
+    margin: 0 auto 10px;
+    border-radius: 8px;
+}
+
+.book-info {
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .media-section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .container-content-articles {
+        flex: 1 1 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container-content-books,
+    .container-content-videos {
+        flex: 1 1 45%; /*Adjust flex basis for better layot*/
+    }
+
+    .article-item {
+        flex-direction: row; /*Aligns items in a row*/
+    }
+
+    .book-item {
+        flex-direction: column;
+        align-items: center; /*centers book items*/
+    }
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 180px;
+        padding: 1.5rem;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .close-btn {
+        display: block; /* Shows the close button on small screens */
+    }
+
+    .menu-btn {
+        display: block; /* Shows the menu button on small screens */
+        background-color: var(--color-sidebar-background); /* Match the sidebar color */
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%; /* Full width content */
+    }
+
+    .container-content-articles,
+    .container-content-books,
+    .container-content-videos {
+        flex: 1 1 100%; /* Full width within the container */
+    }
+
+    .article-item {
+        flex-direction: column;
+        align-items: flex-start; /* Aligns items to the start */
+    }
+
+    .book-item {
+        text-align: center; /* Centers text in book items */
+    }
+}

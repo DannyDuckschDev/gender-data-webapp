@@ -1,0 +1,37 @@
+/*src/styles/variables.css*/
+
+:root {
+    /*basic colors*/
+    --color-background: #1e1e1e;
+    --color-surface: #2c2c2c;
+    --color-text: #e0e0e0;
+
+    /*contrast colors*/
+    --color-primary: #556b2f;
+    --color-secondary: #4b0082;
+    --color-accent: #008080;
+
+    /*additional colors*/
+    --color-danger: #800020;
+    --color-warning: #b8860b;
+    --color-light: #d3d3d3;
+    --color-info: #9acd32;
+
+    /*Info.css specific colors */
+    --color-sidebar-background: #1ABC9C;
+    --color-sidebar-text: #e0e0e0;
+    --color-close-btn: #b46666;
+    --color-container-background: #0b483b;
+    --color-hover-border: #1abc9cc2;
+
+    /*Contact.css specific colors*/
+    --color-contact-background: #565655;
+    --heading-color: #094236;
+    --input-background-color: #333;
+    --input-border-color: #565655;
+    --input-hover-border-color: #1abc9cc2;
+
+    /*download.css specific colors*/
+    --section-international-color: #b8860b;
+    --section-germany-color: #664082;
+}

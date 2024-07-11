@@ -1,0 +1,41 @@
+{
+    "sections": [
+        {
+            "title": "International",
+            "items": [
+                {
+                    "type": "download",
+                    "key": "periodTeaEN",
+                    "label": "Download Recipe",
+                    "description": "This is a tea out of fresh herbs to regulate PMS symptoms, reduce period pain and period symptoms.",
+                    "ingredients": [
+                        "Raspberry leaf",
+                        "nettle tea",
+                        "chamomile",
+                        "ginger",
+                        "vanilla extract",
+                        "lemon (or alternatively orange)"
+                    ],
+                    "preparation": "Peel the ginger, then chop or slice. Put raspberry leaves, nettle leaves, chamomile flowers and ginger in a tea sieve. Pour 1.25 L of boiling water over it and let it steep for at least 10 minutes. Ideally between 15 and 20 minutes). Squeeze half a lemon. Add the lemon juice and vanilla extract to the tea.",
+                    "url": "/assets/PeriodTeaRecipe.pdf",
+                    "additionalDownload": {
+                        "label": "Download Recipe German",
+                        "url": "/assets/PeriodenTeeRezept.pdf"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Germany",
+            "items": [
+                {
+                    "type": "link",
+                    "key": "loremIpsumDolor",
+                    "label": "Go to Website",
+                    "description": "Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.",
+                    "url": "#"
+                }
+            ]
+        }
+    ]
+}

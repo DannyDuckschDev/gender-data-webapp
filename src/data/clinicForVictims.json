@@ -1,0 +1,108 @@
+[
+    {
+        "position": [48.13319245715202, 11.559707638184987],
+        "name": "Untersuchungsstelle für Opfer häuslicher Gewalt",
+        "address": "Nussbaumstraße 26, 80336 München",
+        "url": "https://www.rechtsmedizin.med.uni-muenchen.de/wissenschaft/klinische_rechtsmed/ambul_gewaltopfer/index.html",
+        "hours": "Mo - Fr 8 Uhr - 16 Uhr"
+    },
+    {
+        "position": [49.3460177966882, 7.026608561415934],
+        "name": "REMARKS Rechtsmedizin am Klinikum Saarbrücken - Opferambulanz",
+        "address": "Winterberg 1, 66119 Saarbrücken",
+        "url": "https://www.opferambulanz-saarland.de/",
+        "hours": "Mo bis Fr: 08.30 Uhr - 16.00 Uhr"
+
+    },
+    {
+        "position": [54.08194323703256, 12.138735154208213],
+        "name": "Institut für Rechtsmedizin - Opferambulanz ",
+        "address": "St.-Georg-Straße 108,18055 Rostock",
+        "url": "https://rechtsmedizin.med.uni-rostock.de/opferambulanz",
+        "hours": "Mo - Do:  07.00 - 16.00 Uhr Fr: 07.00 - 14.30 Uhr"
+    },
+    {
+        "position": [51.967505631998186, 7.589930878318605],
+        "name": "Universitätsklinikum Münster: Institut für Rechtsmedizin Münster",
+        "address": "Röntgenstraße 23, 48149 Münster",
+        "url": "https://web.ukm.de/rechtsmedizingewaltopferambulan",
+        "hours": "Mo, Mi, Do: 8 - 16 Uhr,Di: 9 - 16 Uhr, Fr: 8 - 15.30 Uhr, nach Vereinbarung"
+    },
+    {
+        "position": [54.09677315429722, 13.384982656590765],
+        "name": "Gewaltopferambulanz des Instituts für Rechtsmedizin - Universität Greifswald",
+        "address": "Kuhstraße 30, 17489 Greifswald",
+        "url": "https://www2.medizin.uni-greifswald.de/rechtsmed/forensische-medizin/gewaltopferambulanz/",
+        "hours": "Mo - Fr: 07:00 Uhr - 15:30 Uhr"
+    },
+    {
+        "position": [52.107663192452826, 9.351649738708286],
+        "name": "Sana Klinikum Hameln-Pyrmont - Opferambulanz",
+        "address": "Saint-Maur-Platz 1, 31785 Hameln",
+        "url": "https://www.sana.de/hameln/medizin-pflege/notfallmedizin-zentrale-notaufnahme/opferambulanz",
+        "hours": "Rund um die Uhr geöffnet"
+    },
+    {
+        "position": [51.19566605217079, 6.790092031266893],
+        "name": "Universitätsklinikum Düsseldorf - Rechtsmedizinische Ambulanz für Gewaltopfer",
+        "address": "Moorenstr. 5, 40225 Düsseldorf",
+        "url": "https://www.uniklinik-duesseldorf.de/patienten-besucher/klinikeninstitutezentren/institut-fuer-rechtsmedizin/bereiche/rechtsmedizinische-ambulanz-fuer-gewaltopfer",
+        "hours": "Mo - Do: 09:00 - 16:00 Uhr, Fr: 09:00 - 14:00 Uhr"
+    },
+    {
+        "position": [51.3307116174681, 12.392279332216107],
+        "name": "Institut für Rechtsmedizin Leipzig - Opferambulanz ",
+        "address": "Johannisallee 28, Haus H, 04103 Leipzig",
+        "url": "https://www.uniklinikum-leipzig.de/einrichtungen/rechtsmedizin",
+        "hours": "keine Angabe"
+    },
+    {
+        "position": [49.42112258234227, 8.667233808886694],
+        "name": "Universitätsklinikum Heidelberg - Opferambulanz",
+        "address": "Im Neuenheimer Feld 672,69120 Heidelberg, Gebäude 6672",
+        "url": "https://www.klinikum.uni-heidelberg.de/rechts-und-verkehrsmedizin/leistungsspektrum/medizin/gewaltambulanz/gewaltambulanz-heidelberg",
+        "hours": "nach telefonischer Terminabsprache rund um die Uhr zur Verfügung"
+    },
+    {
+        "position": [48.40747272943306, 9.99803115807729],
+        "name": "Institut für Rechtsmedizin Ulm - Gewaltopferambulanz",
+        "address": "Prittwitzstr.6, 89075 Ulm",
+        "url": "https://www.uniklinik-ulm.de/rechtsmedizin/gewaltopferambulanz.html",
+        "hours": "Mo bis Do: 09.00 - 16.00 Uhr und Fr 09.00 - 14.00 Uhr"
+    },
+    {
+        "position": [52.53016727941907, 13.348466485967926],
+        "name": "Gewaltschutzambulanz - Charité - Universitätsmedizin Berlin, Institut für Rechtsmedizin",
+        "address": "Birkenstraße 62 (Haus N),10559 Berlin - Moabit",
+        "url": "https://gewaltschutzambulanz.charite.de/",
+        "hours": "Mo - Fr 8 Uhr - 16 Uhr"
+    },
+    {
+        "position": [52.10318941189067, 11.61450766233551],
+        "name": "Institut für Rechtsmedizin,Außenstelle Magdeburg",
+        "address": "Leipziger Str. 44, Haus 28, 39120 Magdeburg",
+        "url": "http://www.irm.ovgu.de/Leistungsspektrum/Gewaltopferschutzambulanz.html",
+        "hours": "Mo - Sa: 07.30 - 16.00 Uhr"
+    },
+    {
+        "position": [54.32934651097928, 10.141797664126077],
+        "name": "Rechtsmedizinische Ambulanz Kiel, Universitätsklinikum Schleswig-Holstein,Institut für Rechtsmedizin",
+        "address": "Arnold-Heller-Straße 3, Haus U35,24105 Kiel",
+        "url": "https://www.vertrauliche-spurensicherung-sh.de/",
+        "hours": "Mo - Do 8 - 16 Uhr, Fr 8 - 15 Uhr"
+    },
+    {
+        "position": [53.849164910142626, 10.69135481039351],
+        "name": "Rechtsmedizinische Ambulanz Lübeck, Universitätsklinikum Schleswig-Holstein,Institut für Rechtsmedizin",
+        "address": "Kahlhorststraße 31-35, Haus 330, 23562 Lübeck",
+        "url": "https://www.vertrauliche-spurensicherung-sh.de/",
+        "hours": "Mo - Do 8 - 16 Uhr, Fr 8 - 15 Uhr"
+    },
+    {
+        "position": [53.59265069406875, 9.971470666712799],
+        "name": "Rechtsmedizinische Ambulanz Hamburg, Universitätsklinikum Schleswig-Holstein,Institut für Rechtsmedizin",
+        "address": "Butenfeld 34, Haus Nord 81 (N81),22529 Hamburg",
+        "url": "https://www.vertrauliche-spurensicherung-sh.de/",
+        "hours": "Mo - Do 8 - 16 Uhr, Fr 8 - 15 Uhr"
+    }
+]

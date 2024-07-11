@@ -1,0 +1,122 @@
+/*Backup download.css*/
+/* src/styles/download.css */
+.download-page {
+    padding: 20px;
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+h2.international {
+    color: var(--section-international-color);
+    margin-bottom: 10px;
+}
+
+h2.germany {
+    color: var(--section-germany-color);
+    margin-bottom: 10px;
+}
+
+.section-separator.international {
+    width: 100%;
+    height: 5px;
+    background-color: var(--section-international-color);
+    margin-bottom: 20px;
+}
+
+.section-separator.germany {
+    width: 100%;
+    height: 5px;
+    background-color: var(--section-germany-color);
+    margin-bottom: 20px;
+}
+
+.download-card {
+    background-color: var(--color-container-background);
+    margin-bottom: 20px;
+    border: 1px solid var(--color-hover-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+}
+
+.card-header:hover {
+    background-color: var(--color-hover-border);
+}
+
+
+.card-content {
+    padding: 15px;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    display: flex; /*use flexbox*/
+    flex-direction: column; /*align vertically*/
+}
+
+.card-content li{
+    margin: 0.5rem 3rem;
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.download-buttons{
+    display: flex;
+    gap: 0.25rem;
+}
+
+.button-with-loader{
+    display: flex;
+    align-items: center;
+    gap:0.15rem;
+}
+
+.download-button {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.download-button:hover {
+    background-color: var(--color-warning);
+}
+
+.loader{
+    border: 4px solid #e0e0e0; /*soft color for background*/
+    border-top: 4px solid #6200ea; /*dark color for progress*/
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 2s linear infinite; /*rotating animation*/
+}
+
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+.map-placeholder {
+    width: 100%;
+    height: 200px;
+    background-color: var(--color-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color)
+}
