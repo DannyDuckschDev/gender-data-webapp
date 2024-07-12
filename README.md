@@ -5,10 +5,10 @@ The **Gender Data Gap App** is a comprehensive web application designed to suppo
 
 ## Features
 - **Home**: Introduction to the app and its purpose.
-- **Everyday Knowledge:** Tips and information on various everyday topics, such as driving safety.
-- **Period:** Information and resources related to menstruation, including downloadable tea recipes.
+- **Knowledge:** Tips and information on various everyday topics, such as driving safety.
+- **Support offers:** Provides  available support services, such as counseling or helplines etc..
+- **Downloads:** Various resources that users can download, such as recipes, guides, or informational PDFs.
 - **Contact:** Details about the app's creator and ways to get in touch.
-- **Forum:** A space for women* to share their experiences and advice with each other.
 
  ## Installation
 To run this project locally, follow these steps:
@@ -40,48 +40,72 @@ npm run dev
 
 ## Directory Structure
 ```bash
-gender-data-gap-app/
+gender-data-app/
+│
 ├── node_modules/
+│
 ├── public/
-│   ├── index.html
-│   └── vite.svg
+│   ├── assets/
+│   │   ├── PeriodenTeeRezept.pdf
+│   │   ├── PeriodTeaRecipe.pdf
+│   │   ├── index.html
+│   │   └── vite.svg
+│
 ├── src/
+│   ├── assets/
+│   │   └── react.svg
 │   ├── components/
-│   │   ├── Header.tsx
+│   │   ├── DownloadButton.tsx
+│   │   ├── DownloadCard.tsx
 │   │   ├── Footer.tsx
-│   │   ├── InfoCard.tsx
-│   │   ├── ForumPost.tsx
-│   │   └── ForumForm.tsx
-│   ├── pages/
-│   │   ├── Home.tsx
-│   │   ├── EverydayKnowledge.tsx
-│   │   ├── Period.tsx
-│   │   ├── Contact.tsx
-│   │   └── Forum.tsx
+│   │   ├── Header.tsx
+│   │   ├── ScrollToTopButton.tsx
+│   │   └── Section.tsx
 │   ├── data/
-│   │   └── infoData.ts
+│   │   ├── data.json
+│   │   └── downloadContent.json
+│   ├── hooks/
+│   │   ├── useDownloadProgress.ts
+│   │   ├── useScrollToTop.tsx
+│   │   └── useToggleExpand.tsx
+│   ├── pages/
+│   │   ├── Contact.tsx
+│   │   ├── Downloads.tsx
+│   │   ├── Home.tsx
+│   │   ├── Knowledge.tsx
+│   │   └── Support.tsx
 │   ├── styles/
-│   │   └── main.css
+│   │   ├── button.css
+│   │   ├── contact.css
+│   │   ├── download.css
+│   │   ├── knowledge.css
+│   │   ├── main.css
+│   │   ├── support.css
+│   │   └── variables.css
 │   ├── App.tsx
 │   ├── main.tsx
+│   ├── types.ts
 │   └── vite-env.d.ts
+│
+├── .eslintrc.cjs
 ├── .gitignore
+├── index.html
+├── package-lock.json
 ├── package.json
+├── README.md
 ├── tsconfig.json
-├── vite.config.ts
-└── README.md
+├── tsconfig.node.json
+└── vite.config.ts
+
 ```
 ## Usage
 
 ### Navigation
-- Home: Provides an overview of the app and its goals.
-- Everyday Knowledge: Offers practical advice on various everyday situations.
-- Period: Contains information related to menstruation, including downloadable resources.
-- Contact: Includes information about the creator and how to get in touch.
-- Forum: Allows users to post and discuss their experiences and advice.
-
-### Forum
-Users can post new topics and respond to existing ones. Each post includes the content and the date it was posted.
+- **Home**: Introduction to the app and its purpose.
+- **Knowledge:** Tips and information on various everyday topics, such as driving safety.
+- **Support offers:** Provides  available support services, such as counseling or helplines etc..
+- **Downloads:** Various resources that users can download, such as recipes, guides, or informational PDFs.
+- **Contact:** Details about the app's creator and ways to get in touch.
 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit pull requests for any enhancements or bug fixes.
