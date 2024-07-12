@@ -28,7 +28,7 @@ const DownloadCard: React.FC<DownloadCardProps> = ({ item, isExpanded, toggleExp
                     {item.description && <p>{item.description}</p>}
                     {item.ingredients && (
                         <>
-                            <p>Ingredients:</p>
+                            <h4>Ingredients:</h4>
                             <ul>
                                 {item.ingredients.map((ingredient: string) => (
                                     <li key={ingredient}>{ingredient}</li>
@@ -36,7 +36,12 @@ const DownloadCard: React.FC<DownloadCardProps> = ({ item, isExpanded, toggleExp
                             </ul>
                         </>
                     )}
-                    {item.preparation && <p>Preparation: {item.preparation}</p>}
+                    {item.preparation && (
+                        <>
+                            <h4>Preparation:</h4>
+                            <p>{item.preparation}</p>
+                        </>
+                        )}
                     <div className="download-buttons">
                         <DownloadButton
                             downloadKey={item.key} 

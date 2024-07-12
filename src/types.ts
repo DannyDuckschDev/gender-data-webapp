@@ -25,54 +25,49 @@ export interface Video {
     url: string; // URL to watch the video
 }
 
-// Interface for general content which can include books, articles, or videos
-export interface Content {
-    id: number; // Unique identifier for the content
-    name: string; // Name of the content
-    category: string[]; // Categories the content belongs to
-    types: string[]; // Types of content (e.g., "Book", "Article", "Video")
-    book?: Book; // Optional book information
-    article?: Article; // Optional article information
-    video?: Video; // Optional video information
+export interface ContentItem {
+    key: string;
+    label: string;
+    type: 'download' | 'link';
 }
 
-// Interface for additional download information
-export interface AdditionalDownload {
-    label: string; // Label for the additional download button
-    url: string; // URL for the additional downloadable file
+export interface DownloadItem extends ContentItem{
+    type: 'download';
+    description: string;
+    ingredients: string[];
+    preparation: string;
+    url: string;
+    additionalDownload?: {
+        label: string;
+        url: string;
+    };
 }
 
-// Interface for download item
-export interface DownloadItem {
-    type: 'download'; // Type of content (download)
-    key: string; // Unique key for the download item
-    label: string; // Label for the download button
-    description?: string; // Optional description of the download item
-    ingredients?: string[]; // Optional list of ingredients for the download item
-    preparation?: string; // Optional preparation instructions for the download item
-    url: string; // URL to the downloadable file
-    additionalDownload?: AdditionalDownload; // Optional additional download information
+export interface Phase{
+    name: string;
+    description: string;
 }
 
-// Interface for link item
-export interface LinkItem {
-    type: 'link'; // Type of content (link)
-    key: string; // Unique key for the link item
-    label: string; // Label for the link button
-    description?: string; // Optional description of the link item
-    url: string; // URL to the website
+export interface Detail{
+    title: string;
+    content: string;
+    phases?: Phase[];
 }
 
-// Type definition for content item which can be either a download or a link
-export type ContentItem = DownloadItem | LinkItem;
-
-// Interface for section which contains a title and a list of content items
-export interface Section {
-    title: string; // Title of the section
-    items: ContentItem[]; // List of content items in the section
+export interface LinkItem extends ContentItem{
+    type: 'link';
+    description: string;
+    url: string;
+    iosUrl?: string;
+    androidUrl?: string;
+    details?: Detail[];
 }
 
-// Interface for the entire content data structure
-export interface ContentData {
-    sections: Section[]; // List of sections in the content data
+export interface Section{
+    title: string;
+    items: ContentItem[];
+}
+
+export interface ContentData{
+    sections: Section[];
 }

@@ -6,7 +6,7 @@
                 {
                     "type": "download",
                     "key": "periodTeaEN",
-                    "label": "Download Recipe",
+                    "label": "Download Period Tea Recipe",
                     "description": "This is a tea out of fresh herbs to regulate PMS symptoms, reduce period pain and period symptoms.",
                     "ingredients": [
                         "Raspberry leaf",
@@ -22,6 +22,49 @@
                         "label": "Download Recipe German",
                         "url": "/assets/PeriodenTeeRezept.pdf"
                     }
+                },
+                {
+                    "type": "link",
+                    "key": "28App",
+                    "label": "Download App '28' - Period-cycle based app for nutrition and workout",
+                    "description": "Discover the 28 app, which offers a unique approach to fitness designed specifically for women. Continue using the free version or upgrade to Premium for unlimited access to workout videos, recipes, grocery lists, and more. <br /><a href='https://28.co'>Learn more about 28</a><br />",
+                    "details": [
+                        {
+                            "title": "Workout With Your Cycle",
+                            "content": "Unlike traditional fitness methods designed for men, 28 optimizes energy, hormones, strength, and flexibility by aligning workouts with the phases of a woman's cycle."
+                        },
+                        {
+                            "title": "Addressing Hormone Imbalances",
+                            "content": "28's nutritional approach aims to naturally restore hormonal balance, counteracting the effects of synthetic estrogens found in birth control, plastics, and beauty products."
+                        },
+                        {
+                            "title": "Understanding Your Cycle",
+                            "content": "The menstrual cycle has four phases, each bringing unique changes. Tailoring your exercise and nutrition to these phases can enhance your physical and emotional well-being."
+                        },
+                        {
+                            "title": "The Four Phases",
+                            "phases": [
+                                {
+                                    "name": "Menstrual",
+                                    "description": "During menstruation, energy and hormone levels are low. Focus on self-care and gentle activities."
+                                },
+                                {
+                                    "name": "Follicular",
+                                    "description": "As a new cycle begins, estrogen and testosterone rise, making it a great time for muscle-building exercises."
+                                },
+                                {
+                                    "name": "Ovulatory",
+                                    "description": "Around ovulation, energy and mood are at their peak, making it an ideal time for high-intensity workouts."
+                                },
+                                {
+                                    "name": "Luteal",
+                                    "description": "In the luteal phase, the body prepares for menstruation. Hormone levels balance out, but PMS symptoms can appear."
+                                }
+                            ]
+                        }
+                    ],
+                    "iosUrl": "https://apps.apple.com/us/app/28-track-period-cycle-syncing/id6443715544",
+                    "androidUrl": "https://play.google.com/store/apps/details?id=com.twentyeight.app&hl=en_US"
                 }
             ]
         },
