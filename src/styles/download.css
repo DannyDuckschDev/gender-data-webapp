@@ -22,8 +22,8 @@ h2.international {
     margin-bottom: 10px;
 }
 
-h2.germany {
-    color: var(--section-germany-color);
+h2.german {
+    color: var(--section-german-color);
     margin-bottom: 10px;
 }
 
@@ -32,8 +32,8 @@ h2.germany {
     color: var(--section-international-color); /* Yellow */
 }
 
-.germany .card-content h4 {
-    color: var(--section-germany-color); /* Purple */
+.german .card-content h4 {
+    color: var(--section-german-color); /* Purple */
 }
 
 .section-separator.international {
@@ -43,10 +43,10 @@ h2.germany {
     margin-bottom: 20px;
 }
 
-.section-separator.germany {
+.section-separator.german {
     width: 100%;
     height: 5px;
-    background-color: var(--section-germany-color);
+    background-color: var(--section-german-color);
     margin-bottom: 20px;
 }
 

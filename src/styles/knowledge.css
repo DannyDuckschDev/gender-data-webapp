@@ -19,7 +19,7 @@
 .sidebar {
     width: 190px;
     background-color: var(--color-sidebar-background);
-    padding: 1.2rem;
+    padding: var(--spacing-medium);
     position: absolute;
     left: 0;
     height: 100%;
@@ -35,11 +35,15 @@
 
 .sidebar.open {
     transform: translateX(0); /* Slides the sidebar into view */
-
 }
 
 .sidebar h2 {
-    font-size: 1.2rem; /* Adjusts heading size within the sidebar */
+    font-size: var(--font-size-large); /* Adjusts heading size within the sidebar */
+    color: var(--color-sidebar-heading);
+}
+
+.sidebar a {
+    color: var(--color-sidebar-text);
 }
 
 .close-btn {
@@ -51,20 +55,20 @@
     cursor: pointer;
     position: absolute;
     top: -23px;
-    right: -23px;/* Positions the close button */
+    right: -23px; /* Positions the close button */
 }
 
 .reset-btn {
     background-color: var(--color-secondary);
     color: var(--color-text);
     cursor: pointer;
-    padding: 0.75rem 2rem;;
+    padding: var(--spacing-small) var(--spacing-large);
     border: none;
     transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .reset-btn:hover {
-    background-color: var(--color-warning);  /* Changes color on hover */
+    background-color: var(--color-warning); /* Changes color on hover */
 }
 
 .menu-btn {
@@ -72,7 +76,6 @@
     background: none;
     border: none;
     font-size: 2em;
-    color: var(--color-sidebar-text);
     cursor: pointer;
     position: absolute;
     top: 20px;
@@ -83,7 +86,7 @@
 
 .content {
     flex-grow: 1;
-    padding: 20px;
+    padding: var(--spacing-medium);
     overflow-y: auto; /* Allows vertical scrolling */
     display: flex;
     flex-direction: column;
@@ -93,7 +96,7 @@
 .media-section {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: var(--spacing-medium);
     flex-grow: 1;
 }
 
@@ -102,7 +105,7 @@
 .container-content-videos {
     background-color: var(--color-container-background);
     border-radius: 8px;
-    padding: 0.5rem;
+    padding: var(--spacing-small);
     flex: 1 1 100%;
 }
 
@@ -111,14 +114,14 @@
 .video-item:hover {
     border: 2px solid var(--color-hover-border);
     border-radius: 8px;
-    margin: 0.5rem 0.25rem;
-    padding: 0.25rem; /* Adds padding for better spacing on hover*/
+    margin: var(--spacing-small) 0.25rem;
+    padding: 0.25rem; /* Adds padding for better spacing on hover */
 }
 
 .article-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--spacing-small);
 }
 
 .article-image {
@@ -129,6 +132,7 @@
 
 .article-info {
     flex-grow: 1;
+    margin: var(--spacing-medium) 0 var(--spacing-large); 
 }
 
 .book-item {
@@ -146,11 +150,40 @@
     text-align: left;
 }
 
+.toggle-description-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size-medium);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+}
+
+.toggle-description-btn:hover {
+    text-decoration: underline;
+}
+
+.read-link {
+    display: block;
+    color: var(--color-link-content);
+    border: 2px solid var(--color-link-content);
+    padding: 0.15rem;
+    margin: 0.25rem;
+    width: 40%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.read-link:hover {
+    text-decoration: underline;
+}
+
 @media (min-width: 768px) {
     .media-section {
         display: flex;
         flex-wrap: wrap;
-        gap: 20px;
+        gap: var(--spacing-medium);
     }
 
     .container-content-articles {
@@ -161,28 +194,28 @@
 
     .container-content-books,
     .container-content-videos {
-        flex: 1 1 45%; /*Adjust flex basis for better layot*/
+        flex: 1 1 45%; /* Adjust flex basis for better layout */
     }
 
     .article-item {
-        flex-direction: row; /*Aligns items in a row*/
+        flex-direction: row; /* Aligns items in a row */
     }
 
     .book-item {
         flex-direction: column;
-        align-items: center; /*centers book items*/
+        align-items: center; /* centers book items */
     }
 }
 
 h2 {
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-small);
 }
 
 @media (max-width: 768px) {
     .sidebar {
         transform: translateX(-100%);
         width: 180px;
-        padding: 1.5rem;
+        padding: var(--spacing-medium);
     }
 
     .sidebar.open {
@@ -207,6 +240,12 @@ h2 {
     .container-content-books,
     .container-content-videos {
         flex: 1 1 100%; /* Full width within the container */
+    }
+
+    .read-link {
+        width: 80%;
+        padding: 0.75rem;
+        margin: 0.5rem;
     }
 
     .article-item {

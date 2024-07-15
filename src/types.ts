@@ -7,6 +7,8 @@ export interface Book {
     cover_url: string; // URL to the cover image of the book
     shopping_url: string; // URL to purchase the book
     publication_year: number; // Year of publication
+    excerpt: string;
+    description: string;
 }
 
 // Interface for article information for Knowledge.tsx
@@ -15,6 +17,8 @@ export interface Article {
     date: string; // Date of publication
     image_url: string; // URL to the article image
     url: string; // URL to read the article
+    excerpt: string;
+    description: string;
 }
 
 // Interface for video information for Knowledge.tsx
@@ -23,6 +27,19 @@ export interface Video {
     platform: string; // Platform where the video is hosted
     date: string; // Date of publication
     url: string; // URL to watch the video
+    excerpt: string;
+    description: string;
+}
+
+export interface Content{
+    id: number;
+    name: string;
+    category: string[];
+    types: string[];
+    book?: Book;
+    article?: Article;
+    video?: Video; 
+
 }
 
 export interface ContentItem {

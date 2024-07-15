@@ -6,7 +6,7 @@
                 {
                     "type": "download",
                     "key": "periodTeaEN",
-                    "label": "Download Period Tea Recipe",
+                    "label": "Download >>Period Symptom Soother Herbal Tea Recipe<<",
                     "description": "This is a tea out of fresh herbs to regulate PMS symptoms, reduce period pain and period symptoms.",
                     "ingredients": [
                         "Raspberry leaf",
@@ -19,14 +19,14 @@
                     "preparation": "Peel the ginger, then chop or slice. Put raspberry leaves, nettle leaves, chamomile flowers and ginger in a tea sieve. Pour 1.25 L of boiling water over it and let it steep for at least 10 minutes. Ideally between 15 and 20 minutes). Squeeze half a lemon. Add the lemon juice and vanilla extract to the tea.",
                     "url": "/assets/PeriodTeaRecipe.pdf",
                     "additionalDownload": {
-                        "label": "Download Recipe German",
+                        "label": "Download Download >>Period Symptom Soother Herbal Tea Recipe<< German",
                         "url": "/assets/PeriodenTeeRezept.pdf"
                     }
                 },
                 {
                     "type": "link",
                     "key": "28App",
-                    "label": "Download App '28' - Period-cycle based app for nutrition and workout",
+                    "label": "Download >>App '28' - Period-cycle based app for nutrition and workout<<",
                     "description": "Discover the 28 app, which offers a unique approach to fitness designed specifically for women. Continue using the free version or upgrade to Premium for unlimited access to workout videos, recipes, grocery lists, and more. <br /><a href='https://28.co'>Learn more about 28</a><br />",
                     "details": [
                         {
@@ -69,7 +69,7 @@
             ]
         },
         {
-            "title": "Germany",
+            "title": "German",
             "items": [
                 {
                     "type": "link",
