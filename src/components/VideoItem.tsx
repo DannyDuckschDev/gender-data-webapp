@@ -21,7 +21,7 @@ const VideoItem: React.FC<VideoItemProps> = ({ content, isExpanded, toggleDescri
               {isExpanded ? '▲' : '▼'} Read more
             </button>
             {isExpanded && <p>{content.video.description}</p>}
-            <a href={content.video.url} className="read-link">Watch the video</a>
+            <a href={content.video.url} className="read-link" target="_blank">Watch the video</a>
           </>
         )}
       </div> 

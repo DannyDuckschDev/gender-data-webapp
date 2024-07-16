@@ -24,7 +24,7 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ content, isExpanded, toggleDe
                     {isExpanded ? '▲' : '▼'} Read more
                     </button>
                     {isExpanded && <p>{content.article.description}</p>}
-                    <a href={content.article.url} className="read-link">Read the full article</a>
+                    <a href={content.article.url} className="read-link" target="_blank">Read the full article</a>
                 </div>
                 </>
             )}

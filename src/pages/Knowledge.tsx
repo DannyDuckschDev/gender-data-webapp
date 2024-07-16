@@ -1,5 +1,3 @@
-//backup Knowledge.tsx
-
 import React, { useState } from 'react';
 import data from '../data/data.json';
 import { Content } from '../types';
@@ -12,27 +10,35 @@ import useCategories from '../hooks/useCategories';
 import ArticleItem from '../components/ArticleItem';
 import BookItem from '../components/BookItem';
 import VideoItem from '../components/VideoItem';
+import SearchBar from '../components/SearchBar';
 
 // Initialize the contents from the imported data
 const contents: Content[] = data;
 
 const Info: React.FC = () => {
-
-  // State variables for sidebar, mobile view, current category, and categories list
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const isMobile = useWindowSize();
   const [currentCategory, setCurrentCategory] = useState('All');
   const categories = useCategories(contents);
   const [expandedContent, setExpandedContent] = useState<number | null>(null);
+  const [searchTerm, setSearchTerm] = useState(''); // Define the searchTerm state variable
 
-  // Function to toggle the sidebar's visibility
+  // Type the parameter as an array of Content
+  const filterContentsBySearch = (contents: Content[]): Content[] => {
+    if (!searchTerm) return contents;
+    return contents.filter(content =>
+      content.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (content.article && content.article.excerpt.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (content.book && content.book.excerpt.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (content.video && content.video.excerpt.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+  };
+
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  
-  // Filter contents by the current category
-  const filterContentsByCategory = () => {
+  const filterContentsByCategory = (): Content[] => {
     if (currentCategory === 'All') {
       return contents;
     }
@@ -43,13 +49,11 @@ const Info: React.FC = () => {
     setCurrentCategory('All');
   };
 
-  
   const toggleDescription = (id: number) => {
     setExpandedContent(expandedContent === id ? null : id);
   };
 
-  const filteredContents = filterContentsByCategory();
-
+  const filteredContents = filterContentsBySearch(filterContentsByCategory());
 
   return (
     <div className="info-page">
@@ -64,6 +68,9 @@ const Info: React.FC = () => {
       <div className={`content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
         {isMobile && <button className="menu-btn" onClick={toggleSidebar}>☰</button>}
         <h1>Information</h1>
+        <div className='search-container'>
+          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} /> {/* Use SearchBar component */}
+        </div>
         <div className="media-section">
           <section className="container-content-articles">
             <h2 id="article">Articles</h2>
@@ -81,12 +88,12 @@ const Info: React.FC = () => {
             <h2 id="books">Books</h2>
             {filteredContents.filter(content => content.types.includes('Book'))
               .map(content => (
-                  <BookItem
-                    key={content.id}
-                    content={content}
-                    isExpanded={expandedContent === content.id}
-                    toggleDiscription={toggleDescription}
-                  />
+                <BookItem
+                  key={content.id}
+                  content={content}
+                  isExpanded={expandedContent === content.id}
+                  toggleDescription={toggleDescription}
+                />
               ))}
           </section>
           <section className="container-content-videos">

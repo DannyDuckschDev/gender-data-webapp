@@ -15,6 +15,24 @@
     height: 100vh;
     overflow: hidden; /* Prevents overflow to keep the layout clean */
 }
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: var(--spacing-large) 0;
+}
+
+.search-bar{
+    width: 80%;
+    padding: var(--spacing-small);
+    border: 4px solid var(--color-container-background);
+    border-radius: 8px;
+}
+
+.search-bar:hover{
+    border: 4px solid var(--color-hover-border);
+}
 
 .sidebar {
     width: 190px;
@@ -152,12 +170,14 @@
 
 .toggle-description-btn {
     background: none;
-    border: none;
+    border: 2px solid var(--color-read-btn);
     cursor: pointer;
     font-size: var(--font-size-medium);
-    color: var(--color-primary);
+    color: var(--color-read-btn);
     display: flex;
-    align-items: center;
+    padding: 0.6rem;
+    margin: 1rem 0;
+    width: 40%;
 }
 
 .toggle-description-btn:hover {
@@ -167,7 +187,8 @@
 .read-link {
     display: block;
     color: var(--color-link-content);
-    border: 2px solid var(--color-link-content);
+    border: 2px dotted var(--color-link-content);
+    border-radius: 8px;
     padding: 0.15rem;
     margin: 0.25rem;
     width: 40%;
@@ -246,6 +267,16 @@ h2 {
         width: 80%;
         padding: 0.75rem;
         margin: 0.5rem;
+    }
+
+    .toggle-description-btn{
+        width: 80%;
+    }
+
+    .article-item,
+    .book-item,
+    .video-item {
+        padding: 1rem;
     }
 
     .article-item {

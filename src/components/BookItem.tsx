@@ -6,10 +6,10 @@ import { Content } from "../types";
 interface BookItemProps{
     content: Content;
     isExpanded: boolean;
-    toggleDiscription: (id: number) => void;
+    toggleDescription: (id: number) => void;
 }
 
-const BookItem: React.FC<BookItemProps> = ({content, isExpanded, toggleDiscription}) => {
+const BookItem: React.FC<BookItemProps> = ({content, isExpanded, toggleDescription}) => {
    return (
     <div className="book-item">
         {content.book && (
@@ -21,11 +21,11 @@ const BookItem: React.FC<BookItemProps> = ({content, isExpanded, toggleDiscripti
                     <p><span>Title:</span> {content.book.title}</p>
                     <p><span>Publication Year:</span> {content.book.publication_year}</p>
                     <p>{content.book.excerpt}</p>
-                    <button onClick={() => toggleDiscription(content.id)} className="toggle-description-btn">
+                    <button onClick={() => toggleDescription(content.id)} className="toggle-description-btn">
                     {isExpanded ? '▲' : '▼'} Read more
                     </button>
                     {isExpanded && <p>{content.book.description}</p>}
-                    <a href={content.book.shopping_url} className="read-link">Buy this book</a>
+                    <a href={content.book.shopping_url} className="read-link" target="_blank">Buy this book</a>
                 </div>
             </>
         )}
