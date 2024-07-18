@@ -35,7 +35,7 @@ export interface Content{
     id: number;
     name: string;
     category: string[];
-    types: string[];
+    type: string;
     book?: Book;
     article?: Article;
     video?: Video; 

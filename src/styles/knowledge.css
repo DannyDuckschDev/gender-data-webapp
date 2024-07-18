@@ -1,4 +1,4 @@
-/* src/styles/Info.css */
+/* src/styles/knowledge.css */
 @import './variables.css';
 
 /* Global styles */
@@ -15,23 +15,40 @@
     height: 100vh;
     overflow: hidden; /* Prevents overflow to keep the layout clean */
 }
+
 .search-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: var(--spacing-large) 0;
+    margin-bottom: var(--spacing-large);
 }
 
-.search-bar{
+.search-bar-container{
+    position: relative;
+    display: flex;
+    align-items: center;
     width: 80%;
+    margin: 0 auto;
+}
+
+.search-bar {
+    width: 100%;
     padding: var(--spacing-small);
     border: 4px solid var(--color-container-background);
     border-radius: 8px;
+    padding-right: 40px; /*space for the icom*/
 }
 
-.search-bar:hover{
+.search-bar:hover {
     border: 4px solid var(--color-hover-border);
+}
+
+.search-icon{
+    position: absolute;
+    right: 10px;
+    font-size: 1.5em;
+    color: var(--color-text);
 }
 
 .sidebar {
@@ -127,13 +144,19 @@
     flex: 1 1 100%;
 }
 
+.article-item,
+.book-item,
+.video-item{
+    padding: 0 1rem;
+}
+
 .article-item:hover,
 .book-item:hover,
 .video-item:hover {
     border: 2px solid var(--color-hover-border);
     border-radius: 8px;
-    margin: var(--spacing-small) 0.25rem;
-    padding: 0.25rem; /* Adds padding for better spacing on hover */
+    margin: var(--spacing-small) 0.75rem;
+    padding: var(--spacing-medium); /* Adds padding for better spacing on hover */
 }
 
 .article-item {
@@ -143,7 +166,7 @@
 }
 
 .article-image {
-    width: 150px;
+    width: 220px;
     height: auto;
     border-radius: 8px;
 }
@@ -168,32 +191,38 @@
     text-align: left;
 }
 
-.toggle-description-btn {
-    background: none;
-    border: 2px solid var(--color-read-btn);
-    cursor: pointer;
-    font-size: var(--font-size-medium);
-    color: var(--color-read-btn);
+.container-btn-link {
     display: flex;
-    padding: 0.6rem;
-    margin: 1rem 0;
-    width: 40%;
+    justify-content: space-evenly;
+    gap: var(--spacing-small);
+    margin-top: var(--spacing-large);
 }
 
-.toggle-description-btn:hover {
-    text-decoration: underline;
+.toggle-description-btn,
+.read-link {
+    background: none;
+    cursor: pointer;
+    font-size: var(--font-size-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%; /* Ensure consistent width */
+    padding: 0.6rem; /* Ensure consistent padding */
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.toggle-description-btn {
+    border: 2px solid var(--color-read-btn);
+    color: var(--color-read-btn);
+    margin: 0;
 }
 
 .read-link {
-    display: block;
     color: var(--color-link-content);
     border: 2px dotted var(--color-link-content);
-    border-radius: 8px;
-    padding: 0.15rem;
-    margin: 0.25rem;
-    width: 40%;
-    text-align: center;
-    font-weight: bold;
 }
 
 .read-link:hover {
@@ -269,19 +298,32 @@ h2 {
         margin: 0.5rem;
     }
 
-    .toggle-description-btn{
+    .toggle-description-btn {
         width: 80%;
+    }
+
+    .container-btn-link {
+        flex-direction: column;
+        align-items: center;
+        margin-top: var(--spacing-medium);
     }
 
     .article-item,
     .book-item,
     .video-item {
         padding: 1rem;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .article-item {
-        flex-direction: column;
-        align-items: flex-start; /* Aligns items to the start */
+    /* Center and enlarge images for smaller screens */
+    .article-image,
+    .book-cover,
+    .video-item img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        margin: var(--spacing-medium) auto;
     }
 
     .book-item {

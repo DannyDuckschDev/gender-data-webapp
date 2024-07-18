@@ -1,9 +1,23 @@
 [
     {
         "id": 1,
-        "name": "Health Misinformation Online",
+        "name": "Health Misinformation Online - Article",
         "category": ["Female Health", "Medicine", "English Article"],
-        "types": ["Article", "Book", "Video"],
+        "type": "Article",
+        "article": {
+            "author": "Sara Stewart",
+            "date": "May 30, 2024",
+            "image_url": "https://imgix.bustle.com/uploads/image/2024/5/23/c98413c2/authortemplate001.jpeg?w=768&q=50&dpr=2",
+            "url": "https://www.bustle.com/entertainment/karen-tang-its-not-hysteria-book-womens-health",
+            "excerpt": "A brief overview of health misinformation online.",
+            "description": "A detailed discussion on how misinformation about health spreads online and its impact on society."
+        }
+    },
+    {
+        "id": 2,
+        "name": "Health Misinformation Online - Book",
+        "category": ["Female Health", "Medicine", "English Article"],
+        "type": "Book",
         "book": {
             "author": "Dr. Karen Tang",
             "title": "It's Not Hysteria - The Truth About Pelvic Pain, Period Problems, and Your Gynaecologic Health",
@@ -12,15 +26,13 @@
             "publication_year": 2023,
             "excerpt": "An overview of pelvic pain and period problems.",
             "description": "This book explores the truth about pelvic pain, period problems, and gynecologic health."
-        },
-        "article": {
-            "author": "Sara Stewart",
-            "date": "May 30, 2024",
-            "image_url": "https://imgix.bustle.com/uploads/image/2024/5/23/c98413c2/authortemplate001.jpeg?w=768&q=50&dpr=2",
-            "url": "https://www.bustle.com/entertainment/karen-tang-its-not-hysteria-book-womens-health",
-            "excerpt": "A brief overview of health misinformation online.",
-            "description": "A detailed discussion on how misinformation about health spreads online and its impact on society."
-        },
+        }
+    },
+    {
+        "id": 3,
+        "name": "Health Misinformation Online - Video",
+        "category": ["Female Health", "Medicine", "English Article"],
+        "type": "Video",
         "video": {
             "channel": "WAMC Northeast Public Radio",
             "platform": "YouTube",
@@ -31,10 +43,10 @@
         }
     },
     {
-        "id": 2,
+        "id": 4,
         "name": "2023 - first crash test dummy modelled on the female body",
         "category": ["Female Health", "Safety", "English Article"],
-        "types": ["Article"],
+        "type": "Article",
         "article": {
             "author": "Aisling Ní Chúláin",
             "date": "21 September 2023",
@@ -45,10 +57,10 @@
         }
     },
     {
-        "id": 3,
+        "id": 5,
         "name": "Steigende Fallzahlen bei Opferambulanzen",
         "category": ["Health", "Safety", "German Article"],
-        "types": ["Article"],
+        "type": "Article",
         "article": {
             "author": "Zeit Online / Deutsche Presseagentur",
             "date": "25 December 2023",
