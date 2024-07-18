@@ -7,8 +7,8 @@ export interface Book {
     cover_url: string; // URL to the cover image of the book
     shopping_url: string; // URL to purchase the book
     publication_year: number; // Year of publication
-    excerpt: string;
-    description: string;
+    excerpt: string; // Excerpt from the book
+    description: string; // Description of the book
 }
 
 // Interface for article information for Knowledge.tsx
@@ -17,8 +17,8 @@ export interface Article {
     date: string; // Date of publication
     image_url: string; // URL to the article image
     url: string; // URL to read the article
-    excerpt: string;
-    description: string;
+    excerpt: string; // Excerpt from the article
+    description: string; // Description of the article
 }
 
 // Interface for video information for Knowledge.tsx
@@ -27,64 +27,90 @@ export interface Video {
     platform: string; // Platform where the video is hosted
     date: string; // Date of publication
     url: string; // URL to watch the video
-    excerpt: string;
-    description: string;
+    excerpt: string; // Excerpt from the video
+    description: string; // Description of the video
 }
 
-export interface Content{
-    id: number;
-    name: string;
-    category: string[];
-    type: string;
-    book?: Book;
-    article?: Article;
-    video?: Video; 
-
+// Interface for general content
+export interface Content {
+    id: number; // Unique identifier for the content
+    name: string; // Name of the content
+    category: string[]; // Categories the content belongs to
+    type: string; // Type of content (book, article, video)
+    book?: Book; // Book details (if type is book)
+    article?: Article; // Article details (if type is article)
+    video?: Video; // Video details (if type is video)
 }
 
+// Interface for content item
 export interface ContentItem {
-    key: string;
-    label: string;
-    type: 'download' | 'link';
+    key: string; // Unique key for the content item
+    label: string; // Label for the content item
+    type: 'download' | 'link'; // Type of the content item (download or link)
 }
 
-export interface DownloadItem extends ContentItem{
-    type: 'download';
-    description: string;
-    ingredients: string[];
-    preparation: string;
-    url: string;
-    additionalDownload?: {
-        label: string;
-        url: string;
+// Interface for download item, extending content item
+export interface DownloadItem extends ContentItem {
+    type: 'download'; // Type is fixed to 'download'
+    description: string; // Description of the download item
+    ingredients: string[]; // List of ingredients for the download item
+    preparation: string; // Preparation steps for the download item
+    url: string; // URL to download the item
+    additionalDownload?: { // Optional additional download information
+        label: string; // Label for the additional download
+        url: string; // URL for the additional download
     };
 }
 
-export interface Phase{
-    name: string;
-    description: string;
+// Interface for phase information in details
+export interface Phase {
+    name: string; // Name of the phase
+    description: string; // Description of the phase
 }
 
-export interface Detail{
-    title: string;
-    content: string;
-    phases?: Phase[];
+// Interface for detailed information
+export interface Detail {
+    title: string; // Title of the detail
+    content: string; // Main content of the detail
+    phases?: Phase[]; // Optional list of phases associated with the detail
 }
 
-export interface LinkItem extends ContentItem{
-    type: 'link';
-    description: string;
-    url: string;
-    iosUrl?: string;
-    androidUrl?: string;
-    details?: Detail[];
+// Interface for link item, extending content item
+export interface LinkItem extends ContentItem {
+    type: 'link'; // Type is fixed to 'link'
+    description: string; // Description of the link item
+    url: string; // URL of the link item
+    iosUrl?: string; // Optional iOS URL for the link item
+    androidUrl?: string; // Optional Android URL for the link item
+    details?: Detail[]; // Optional list of detailed information associated with the link item
 }
 
-export interface Section{
-    title: string;
-    items: ContentItem[];
+// Interface for section containing content items
+export interface Section {
+    title: string; // Title of the section
+    items: ContentItem[]; // List of content items in the section
 }
 
-export interface ContentData{
-    sections: Section[];
+// Interface for content data containing multiple sections
+export interface ContentData {
+    sections: Section[]; // List of sections containing content items
+}
+
+// Interface for clinic information
+export interface Clinic {
+    position: [number, number]; // LatLngTuple for clinic location
+    name: string; // Name of the clinic
+    address: string; // Address of the clinic
+    url: string; // URL to the clinic's website
+    hours: string; // Opening hours of the clinic
+}
+
+// Interface for support card information
+export interface SupportCard {
+    id: string; // Unique identifier for the card
+    title: string; // Title of the support card
+    icon: string; // Icon representing the support card
+    content: string; // Main content of the support card
+    buttonText: string; // Text for the button
+    buttonLink: string; // URL the button links to
 }

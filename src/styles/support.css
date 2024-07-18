@@ -1,4 +1,5 @@
-/* src/styles/support.css*/
+/* src/styles/support.css */
+@import './variables.css';
 
 .support-page {
     padding: 20px;
@@ -6,37 +7,31 @@
     color: var(--color-text);
 }
 
-.disclaimer-banner {
-    background-color: var(--color-warning);
-    color: var(--color-text);
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
+/* Styling for the container holding support cards */
 .support-cards {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-.support-card {
-    background-color: var(--color-container-background);
+.support-card, .map-card {
+    background-color: var(--color-background-content);
     border: 1px solid var(--color-hover-border);
     border-radius: 8px;
     overflow: hidden;
-    width: 48%;
-    height: 150px; /* Set a fixed height for the cards */
-    margin-bottom: 20px;
-    transition: height 0.3s ease; /* Transition only the height */
+    transition: height 0.3s ease, background-color 0.3s ease;
 }
 
+.support-card {
+    width: 49%;
+    height: 105px;
+    margin-bottom: 20px;
+}
+
+/* Expanded state of the support card */
 .support-card.expanded {
-    height: auto; /* Allow the height to adjust automatically */
-    overflow: visible; /* Ensure that the expanded content is visible */
+    height: auto;
+    overflow: visible;
 }
 
 .card-header {
@@ -45,8 +40,8 @@
     align-items: center;
     padding: 15px;
     cursor: pointer;
-    background-color: var(--color-surface);
     color: var(--color-text);
+    background-color: var(--color-surface);
     position: relative;
 }
 
@@ -58,35 +53,46 @@
     cursor: pointer;
 }
 
+.icon{
+    font-size: 2.5em;
+}
+
+/* Content inside the card */
 .card-content {
     padding: 15px;
-    background-color: var(--color-surface);
+    background-color: var(--color-background-content);
     color: var(--color-text);
-    display: none; /* Hide the content initially */
+    display: none;
 }
 
-.support-card.expanded .card-content {
-    display: block; /* Show the content when the card is expanded */
+.support-card.expanded .card-content,
+.map-card.expanded .card-content {
+    display: block;
 }
-
 
 .map-card {
     width: 100%;
-    height: 800px; /* Ensure the map card height is fixed */
-    position: relative; /* Ensure the map container positioning is correct */
+    height: auto;
+    position: relative;
 }
 
 .map-card-content {
     width: 100%;
-    height: 100%; /* Ensure the map container fills the parent */
+    height: auto;
+}
+/* Fixed height to ensure full map visibility */
+.map-container {
+    height: 1200px; 
+    width: 100%;
 }
 
 .map-card .leaflet-container {
     width: 100%;
-    height: 100%; /* Ensure the map container fills the parent */
+    height: 1200px; 
 }
-.clinic-name{
-    color: var(--color-background);
+
+.clinic-name {
+    color: var(--color-background-content);
 }
 
 .clinic-info {
@@ -95,6 +101,14 @@
     margin-bottom: 5px;
 }
 
+/* Footer-like container for copyright styling */
+.container-contact-copyright {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--color-text);
+}
+
+/* Responsive design adjustments for small screens */
 @media (max-width: 768px) {
     .support-card {
         width: 100%;
@@ -106,7 +120,7 @@
 
     .map-card {
         width: 100%;
-        height: 1200px; /* Ensure the map card height is fixed */
-        position: relative; /* Ensure the map container positioning is correct */
+        height: auto;
+        position: relative;
     }
 }

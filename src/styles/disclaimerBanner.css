@@ -1,0 +1,59 @@
+/* src/styles/disclaimerBanner.css */
+@import './variables.css';
+
+.disclaimer-banner {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-warning);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .disclaimer-image {
+    flex-shrink: 0;
+    width: 200px;
+    margin-right: 20px;
+    border-radius: 8px;
+  }
+  
+  .disclaimer-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .disclaimer-content p {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .disclaimer-content button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+  
+  .disclaimer-content button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    .disclaimer-banner {
+      flex-direction: column;
+    }
+  
+    .disclaimer-image {
+      width: 100%;
+      max-width: 300px;
+      margin-bottom: 10px;
+    }
+  }
+  
