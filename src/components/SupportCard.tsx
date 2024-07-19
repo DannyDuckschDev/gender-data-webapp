@@ -8,15 +8,19 @@ interface SupportCardProps {
   content: string; // Main content of the support card
   buttonText: string; // Text for the button
   buttonLink: string; // URL the button links to
+  onToggle?: () => void; // Function to call when the card is toggled
 }
 
 // SupportCard component
-const SupportCard: React.FC<SupportCardProps> = ({ id, icon, title, content, buttonText, buttonLink }) => {
+const SupportCard: React.FC<SupportCardProps> = ({ id, icon, title, content, buttonText, buttonLink, onToggle }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   // Toggle the expansion state
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
+    if (onToggle) {
+      onToggle();
+    }
   };
 
   return (

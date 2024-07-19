@@ -5,6 +5,8 @@
     padding: 20px;
     background-color: var(--color-background);
     color: var(--color-text);
+    overflow-y: auto; /*Ensures that the page is scrollable*/
+    min-height: 100vh;
 }
 
 .card-content p{

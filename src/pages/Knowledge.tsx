@@ -68,6 +68,7 @@ const Knowledge: React.FC = () => {
 
   return (
     <div className="info-page">
+      {/* Sidebar component with categories and filters */}
       <Sidebar
         isSidebarOpen={isSidebarOpen}
         toggleSidebar={toggleSidebar}
@@ -76,13 +77,18 @@ const Knowledge: React.FC = () => {
         setCurrentCategory={setCurrentCategory}
         resetFilters={resetFilters}
       />
+      {/* Main content area */}
       <div className={`content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+        {/* Toggle button for sidebar visibility on mobile devices */}
         {isMobile && <button className="menu-btn" onClick={toggleSidebar}>☰</button>}
         <h1>Information</h1>
+        {/* Search bar for filtering content */}
         <div className='search-container'>
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </div>
+        {/* Section for displaying media content */}
         <div className="media-section">
+          {/* Articles section */}
           {filteredArticles.length > 0 && (
             <section className="container-content-articles">
               <h2 id="article">Articles</h2>
@@ -96,6 +102,7 @@ const Knowledge: React.FC = () => {
               ))}
             </section>
           )}
+          {/* Books section */}
           {filteredBooks.length > 0 && (
             <section className="container-content-books">
               <h2 id="books">Books</h2>
@@ -109,6 +116,7 @@ const Knowledge: React.FC = () => {
               ))}
             </section>
           )}
+          {/* Videos section */}
           {filteredVideos.length > 0 && (
             <section className="container-content-videos">
               <h2 id="videos">Videos</h2>
@@ -124,7 +132,8 @@ const Knowledge: React.FC = () => {
           )}
         </div>
       </div>
-      <ScrollToTopButton />
+      {/* Scroll to top button for easy navigation */}
+      <ScrollToTopButton selector='.content' />
     </div>
   );
 };
