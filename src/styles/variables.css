@@ -17,6 +17,12 @@
     --color-light: #d3d3d3;
     --color-info: #9acd32;
 
+    /*Home.css specific colors*/
+    --color-accordion-light: #B7E4C7;
+    --color-accordion-medium: #74C69D;
+    --color-accordion-dark: #40916C;
+
+
     /* Knowledge.css specific colors */
     --color-sidebar-background: #1ABC9C;
     --color-sidebar-text: #565655;

@@ -1,12 +1,19 @@
 // src/pages/Home.tsx
 import React from "react";
+import Hero from "../components/HeroElement";
+import AboutUs from "../components/AboutUs";
 
 const Home: React.FC = () => {
     return(
         <div>
-            <h1>Willkommen zur Gender Data Gap App</h1>
-            <p>In einer Welt, die von *ismen gestaltet ist, kann eine Community aus Wissen den Alltag in kleinen Schritten erleichtern.</p>
-            <p>Diese Anwendung soll FLINTA*s im Alltag mit wichtigen Informationen versorgen.</p>
+            <Hero />
+            <AboutUs />
+
+
+            <div className="container-contact-copyright">
+                <p>Hero Photo by <a href="https://unsplash.com/de/@missswiss">Ashley Piszek</a> on <a href="https://unsplash.com/de">Unsplash</a></p>
+                
+            </div>
         </div>
     );
 };

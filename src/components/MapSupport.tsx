@@ -22,7 +22,7 @@ interface MapComponentProps {
 const MapSupport: React.FC<MapComponentProps> = ({ clinicData }) => {
   return (
     // Map container centered on Germany with a specific zoom level
-    <MapContainer center={[51.1657, 10.4515]} zoom={5.7} style={{ height: '610px', width: '60%' }}>
+    <MapContainer center={[51.1657, 10.4515]} zoom={5.7} style={{ height: '610px', width: '80%' }}>
       {/* Tile layer using OpenStreetMap tiles */}
       <TileLayer
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
