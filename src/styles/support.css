@@ -55,10 +55,6 @@
     cursor: pointer;
 }
 
-.icon{
-    font-size: 2.5em;
-}
-
 /* Content inside the card */
 .card-content {
     padding: 15px;

@@ -7,20 +7,23 @@
     --color-text: #e0e0e0;
 
     /* Contrast colors */
-    --color-primary: #556b2f;
+    --color-primary: #4a5e26;
     --color-secondary: #4b0082;
     --color-accent: #008080;
+    --color-accent-secondary: rgb(224, 81, 105);
 
     /* Additional colors */
     --color-danger: #800020;
     --color-warning: #b8860b;
     --color-light: #d3d3d3;
     --color-info: #9acd32;
+    --color-background-disclaimer: #5a9bd4; 
 
     /*Home.css specific colors*/
     --color-accordion-light: #B7E4C7;
     --color-accordion-medium: #74C69D;
     --color-accordion-dark: #40916C;
+    --color-text-item: #0b483b; 
 
 
     /* Knowledge.css specific colors */

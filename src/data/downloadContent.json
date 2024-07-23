@@ -6,7 +6,7 @@
                 {
                     "type": "download",
                     "key": "periodTeaEN",
-                    "label": "Download >>Period Symptom Soother Herbal Tea Recipe<<",
+                    "label": "Download >>PMS and Period Potion<<",
                     "description": "This is a tea out of fresh herbs to regulate PMS symptoms, reduce period pain and period symptoms.",
                     "ingredients": [
                         "Raspberry leaf",
@@ -19,7 +19,7 @@
                     "preparation": "Peel the ginger, then chop or slice. Put raspberry leaves, nettle leaves, chamomile flowers and ginger in a tea sieve. Pour 1.25 L of boiling water over it and let it steep for at least 10 minutes. Ideally between 15 and 20 minutes). Squeeze half a lemon. Add the lemon juice and vanilla extract to the tea.",
                     "url": "/assets/PeriodTeaRecipe.pdf",
                     "additionalDownload": {
-                        "label": "Download Download >>Period Symptom Soother Herbal Tea Recipe<< German",
+                        "label": "Download >>PMS and Period Potion<< German",
                         "url": "/assets/PeriodenTeeRezept.pdf"
                     }
                 },

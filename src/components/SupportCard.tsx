@@ -1,4 +1,12 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGavel, faPhone, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+
+//Map Icon names to FontAwesome icons, icon names are defined in the folder data/supportCard.json
+const iconMap: { [key: string]: IconDefinition} = {
+  gavel: faGavel,
+  phone: faPhone
+};
 
 // Props interface for the SupportCard component
 interface SupportCardProps {
@@ -26,7 +34,7 @@ const SupportCard: React.FC<SupportCardProps> = ({ id, icon, title, content, but
   return (
     <div key={id} className={`support-card ${isExpanded ? 'expanded' : ''}`}>
       <div className="card-header" onClick={toggleExpand}>
-        <span className="icon">{icon}</span>
+        <FontAwesomeIcon icon={iconMap[icon]} size='2x' />
         <span>{title}</span>
         <button className="toggle-button">{isExpanded ? '▲' : '▼'}</button>
       </div>

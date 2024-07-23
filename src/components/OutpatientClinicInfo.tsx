@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import MapSupport from '../components/MapSupport';
 import { Clinic } from '../types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkedAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 // Props interface for the OutpatientClinicInfo component
 interface OutpatientClinicInfoProps {
@@ -28,7 +31,7 @@ const OutpatientClinicInfo: React.FC<OutpatientClinicInfoProps> = ({ clinicData 
     <div className="map-card">
       <div className="map-card-content">
         <div className="card-header" onClick={toggleExpand}>
-          <span className="icon">🗺️</span>
+          <FontAwesomeIcon icon={faMapMarkedAlt} size="2x" />
           <span>Find the nearest Outpatient Clinic for Victims</span>
           <button className="toggle-button">{isExpanded ? '▲' : '▼'}</button>
         </div>

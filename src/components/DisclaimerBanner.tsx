@@ -1,14 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/disclaimerBanner.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faComments, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 interface DisclaimerBannerProps {
   text: string;
   buttonText: string;
-  imageUrl: string; 
 }
 
-const DisclaimerBanner: React.FC<DisclaimerBannerProps> = ({ text, buttonText, imageUrl }) => {
+const DisclaimerBanner: React.FC<DisclaimerBannerProps> = ({ text, buttonText }) => {
   const navigate = useNavigate();
 
   const navigateToContact = () => {
@@ -17,7 +18,11 @@ const DisclaimerBanner: React.FC<DisclaimerBannerProps> = ({ text, buttonText, i
 
   return (
     <div className="disclaimer-banner">
-      <img src={imageUrl} alt="Disclaimer" className="disclaimer-image" />
+      <div className="disclaimer-icons">
+        <FontAwesomeIcon icon={faEnvelope} size="2x" className="disclaimer-icon" />
+        <FontAwesomeIcon icon={faComments} size="2x" className="disclaimer-icon" />
+        <FontAwesomeIcon icon={faPhone} size="2x" className="disclaimer-icon" />
+      </div>
       <div className="disclaimer-content">
         <p>{text}</p>
         <button onClick={navigateToContact}>{buttonText}</button>
