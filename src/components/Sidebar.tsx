@@ -4,13 +4,15 @@ import React from "react";
 import MediaTypeList from "./MediaTypeList";
 import CategoryList from "./CategoryList";
 
-interface SidebarProps{
+interface SidebarProps {
     isSidebarOpen: boolean;
     toggleSidebar: () => void;
     categories: string[];
     currentCategory: string;
     setCurrentCategory: (category: string) => void;
     resetFilters: () => void;
+    currentMediaType: string;
+    setCurrentMediaType: (type: string) => void;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({
@@ -20,12 +22,17 @@ const Sidebar: React.FC<SidebarProps> = ({
     currentCategory,
     setCurrentCategory,
     resetFilters,
+    currentMediaType,
+    setCurrentMediaType
 }) => {
-    return(
+    return (
         <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
             <button className="close-btn" onClick={toggleSidebar}>×</button>
             <h2>Media Types</h2>
-            <MediaTypeList />
+            <MediaTypeList 
+                currentMediaType={currentMediaType} 
+                setCurrentMediaType={setCurrentMediaType} 
+            />
             <h2>Categories</h2>
             <CategoryList
                 categories={categories}

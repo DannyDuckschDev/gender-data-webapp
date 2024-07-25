@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
+// src/components/ArticleItem.tsx
+import { useState, forwardRef } from 'react';
 import { Content } from '../types';
 
+// Interface for the props passed to the ArticleItem component
 interface ArticleItemProps {
   content: Content;
   isExpanded: boolean;
   toggleDescription: (id: number) => void;
+  isHighlighted: boolean;
+  clearHighlight: () => void; // New prop to clear highlight
 }
 
-/**
- * Component to display an article item with expandable description.
- * @param {ArticleItemProps} props - The props for the component.
- * @returns {JSX.Element} The rendered component.
- */
-
-const ArticleItem: React.FC<ArticleItemProps> = ({ content, toggleDescription }) => {
-    // State to manage the expanded/collapsed state of the description
+// The ArticleItem component is a forward-ref component for article content display
+const ArticleItem = forwardRef<HTMLDivElement, ArticleItemProps>(({ content, toggleDescription, isHighlighted, clearHighlight }, ref) => {
+  // State to manage the expanded/collapsed state of the description
   const [isTextExpanded, setIsTextExpanded] = useState(false);
 
   // Function to handle the toggle of description
@@ -24,12 +23,17 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ content, toggleDescription })
   };
 
   return (
-    <div className="article-item">
+    // Render the article item with conditional highlighting and ref forwarding
+    <div className={`article-item ${isHighlighted ? 'highlighted' : ''}`} ref={ref}>
+      {isHighlighted && (
+        <button className="clear-highlight-btn " onClick={clearHighlight}>End Highlight</button> // Button to end highlight
+      )}
       <img src={content.article?.image_url} alt={content.name} className="article-image" />
       <div className="article-info">
         <h3>{content.name}</h3>
         <p>Author: {content.article?.author}</p>
         <p>Date: {content.article?.date}</p>
+        
         {isTextExpanded ? (
           <p className="expanded-text">{content.article?.description}</p>
         ) : (
@@ -43,9 +47,17 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ content, toggleDescription })
             Read the full article
           </a>
         </div>
+        <div className="categories">
+          <h4>Categories:</h4>
+          <div className="category-tags">
+            {content.category.map((cat, index) => (
+              <span key={index} className="category-tag">{cat}</span>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
-};
+});
 
 export default ArticleItem;

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+// src/pages/Knowledge.tsx
+import React, { useEffect, useState, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import data from '../data/data.json';
 import { Content } from '../types';
 import '../styles/knowledge.css';
 import ScrollToTopButton from '../components/ScrollToTopButton';
-import '../styles/button.css';
 import Sidebar from '../components/Sidebar';
 import useWindowSize from '../hooks/useWindowSize';
 import useCategories from '../hooks/useCategories';
@@ -12,6 +13,7 @@ import ArticleItem from '../components/ArticleItem';
 import BookItem from '../components/BookItem';
 import VideoItem from '../components/VideoItem';
 import SearchBar from '../components/SearchBar';
+
 
 const contents: Content[] = data;
 
@@ -25,6 +27,9 @@ const Knowledge: React.FC = () => {
   // State to manage the current category filter
   const [currentCategory, setCurrentCategory] = useState('All');
   
+  // State to manage the current media type filter
+  const [currentMediaType, setCurrentMediaType] = useState('All');
+  
   // Get categories from contents
   const categories = useCategories(contents);
   
@@ -33,6 +38,13 @@ const Knowledge: React.FC = () => {
   
   // State to manage the search term
   const [searchTerm, setSearchTerm] = useState('');
+  
+  const [highlightedContent, setHighlightedContent] = useState<number | null > (null);
+
+  const location = useLocation();
+
+  // References for content items
+  const contentRefs = useRef<{ [key: number]: HTMLElement | null}>({});
 
   // Effect to handle sidebar visibility based on window size
   useEffect(() => {
@@ -43,6 +55,19 @@ const Knowledge: React.FC = () => {
     }
   }, [isMobile]);
 
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const contentId = params.get('id');
+    if (contentId) {
+      const id = parseInt(contentId);
+      setHighlightedContent(id);
+      setExpandedContent(id);
+      setTimeout(() => {
+        contentRefs.current[id]?.scrollIntoView({behavior: 'smooth', block: 'start'});
+      }, 100); // Ensure the DOM has rendered before scrolling
+    }
+  }, [location.search]);
+
   // Function to toggle the sidebar's visibility
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -51,6 +76,8 @@ const Knowledge: React.FC = () => {
   // Function to reset category filters
   const resetFilters = () => {
     setCurrentCategory('All');
+    setCurrentMediaType('All');
+    setHighlightedContent(null); // Reset highlight
   };
 
   // Function to toggle the description of the content
@@ -76,6 +103,8 @@ const Knowledge: React.FC = () => {
         currentCategory={currentCategory}
         setCurrentCategory={setCurrentCategory}
         resetFilters={resetFilters}
+        currentMediaType={currentMediaType}
+        setCurrentMediaType={setCurrentMediaType}
       />
       {/* Main content area */}
       <div className={`content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
@@ -89,47 +118,62 @@ const Knowledge: React.FC = () => {
         {/* Section for displaying media content */}
         <div className="media-section">
           {/* Articles section */}
-          {filteredArticles.length > 0 && (
-            <section className="container-content-articles">
-              <h2 id="article">Articles</h2>
-              {filteredArticles.map(content => (
-                <ArticleItem
-                  key={content.id}
-                  content={content}
-                  isExpanded={expandedContent === content.id}
-                  toggleDescription={toggleDescription}
-                />
-              ))}
-            </section>
-          )}
+          {currentMediaType === 'All' || currentMediaType === 'Article' ? (
+            filteredArticles.length > 0 && (
+              <section className="container-content-articles">
+                <h2 id="article">Articles</h2>
+                {filteredArticles.map(content => (
+                  <ArticleItem
+                    key={content.id}
+                    content={content}
+                    isExpanded={expandedContent === content.id}
+                    toggleDescription={toggleDescription}
+                    isHighlighted={highlightedContent === content.id} // pass the highlighted state
+                    ref={el => (contentRefs.current[content.id] = el)}
+                    clearHighlight={() => setHighlightedContent(null)} // Pass clear highlight function
+                  />
+                ))}
+              </section>
+            )
+          ) : null}
           {/* Books section */}
-          {filteredBooks.length > 0 && (
-            <section className="container-content-books">
-              <h2 id="books">Books</h2>
-              {filteredBooks.map(content => (
-                <BookItem
-                  key={content.id}
-                  content={content}
-                  isExpanded={expandedContent === content.id}
-                  toggleDescription={toggleDescription}
-                />
-              ))}
-            </section>
-          )}
+          {currentMediaType === 'All' || currentMediaType === 'Book' ? (
+            filteredBooks.length > 0 && (
+              <section className="container-content-books">
+                <h2 id="books">Books</h2>
+                {filteredBooks.map(content => (
+                  <BookItem
+                    key={content.id}
+                    content={content}
+                    isExpanded={expandedContent === content.id}
+                    toggleDescription={toggleDescription}
+                    isHighlighted={highlightedContent === content.id} // pass the highlighted state
+                    ref={el => (contentRefs.current[content.id] = el)}
+                    clearHighlight={() => setHighlightedContent(null)} // Pass clear highlight function
+                  />
+                ))}
+              </section>
+            )
+          ) : null}
           {/* Videos section */}
-          {filteredVideos.length > 0 && (
-            <section className="container-content-videos">
-              <h2 id="videos">Videos</h2>
-              {filteredVideos.map(content => (
-                <VideoItem
-                  key={content.id}
-                  content={content}
-                  isExpanded={expandedContent === content.id}
-                  toggleDescription={toggleDescription}
-                />
-              ))}
-            </section>
-          )}
+          {currentMediaType === 'All' || currentMediaType === 'Video' ? (
+            filteredVideos.length > 0 && (
+              <section className="container-content-videos">
+                <h2 id="videos">Videos</h2>
+                {filteredVideos.map(content => (
+                  <VideoItem
+                    key={content.id}
+                    content={content}
+                    isExpanded={expandedContent === content.id}
+                    toggleDescription={toggleDescription}
+                    isHighlighted={highlightedContent === content.id} // pass the highlighted state
+                    ref={el => (contentRefs.current[content.id] = el)}
+                    clearHighlight={() => setHighlightedContent(null)} // Pass clear highlight function 
+                  />
+                ))}
+              </section>
+            )
+          ) : null}
         </div>
       </div>
       {/* Scroll to top button for easy navigation */}

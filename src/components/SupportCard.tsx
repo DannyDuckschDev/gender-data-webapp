@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGavel, faPhone, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { faGavel, faPhone, IconDefinition, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 
 //Map Icon names to FontAwesome icons, icon names are defined in the folder data/supportCard.json
 const iconMap: { [key: string]: IconDefinition} = {
   gavel: faGavel,
-  phone: faPhone
+  phone: faPhone,
+  handsHelping: faShieldAlt
 };
 
 // Props interface for the SupportCard component

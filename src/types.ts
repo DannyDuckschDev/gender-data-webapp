@@ -1,4 +1,38 @@
 // src/types.ts
+//Interface for Blogposts on Home.tsx:
+export interface BlogPost {
+    id: number;
+    name: string;
+    category: string[],
+    type: string;
+    icon: string;
+    article?: {
+        author: string;
+        date: string;
+        image_url: string;
+        url: string;
+        excerpt: string;
+        description: string;
+    };
+    book?: {
+        author: string;
+        title: string;
+        cover_url: string;
+        shopping_url: string;
+        publication_year: string;
+        excerpt: string;
+        description: string;
+    };
+    video? : {
+        channel: string;
+        platform: string;
+        date: string;
+        url: string;
+        thumbnail: string;
+        excerpt: string;
+        description: string;
+    };
+}
 
 // Interface for book information for Knowledge.tsx
 export interface Book {
@@ -6,7 +40,7 @@ export interface Book {
     title: string; // Title of the book
     cover_url: string; // URL to the cover image of the book
     shopping_url: string; // URL to purchase the book
-    publication_year: number; // Year of publication
+    publication_year: string; // Year of publication
     excerpt: string; // Excerpt from the book
     description: string; // Description of the book
 }
@@ -27,6 +61,7 @@ export interface Video {
     platform: string; // Platform where the video is hosted
     date: string; // Date of publication
     url: string; // URL to watch the video
+    thumbnail: string; //Thumbnail of the Video
     excerpt: string; // Excerpt from the video
     description: string; // Description of the video
 }

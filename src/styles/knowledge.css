@@ -24,7 +24,7 @@
     margin-bottom: var(--spacing-large);
 }
 
-.search-bar-container{
+.search-bar-container {
     position: relative;
     display: flex;
     align-items: center;
@@ -37,14 +37,14 @@
     padding: var(--spacing-small);
     border: 4px solid var(--color-container-background);
     border-radius: 8px;
-    padding-right: 40px; /*space for the icom*/
+    padding-right: 40px; /*space for the icon*/
 }
 
 .search-bar:hover {
     border: 4px solid var(--color-hover-border);
 }
 
-.search-icon{
+.search-icon {
     position: absolute;
     right: 10px;
     font-size: 1.5em;
@@ -80,6 +80,16 @@
 .sidebar a {
     color: var(--color-sidebar-text);
 }
+
+/* Styles for the selected category in the sidebar */
+.active-category,
+.active-media-type {
+    font-weight: bold;
+    background: #b7e4c7a3;
+    border-radius: 8px;
+    padding: 0.25rem;
+}
+
 
 .close-btn {
     display: none;
@@ -142,11 +152,16 @@
     border-radius: 8px;
     padding: var(--spacing-small);
     flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .article-item,
 .book-item,
-.video-item{
+.video-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-small);
     padding: 0 1rem;
 }
 
@@ -159,10 +174,28 @@
     padding: var(--spacing-medium); /* Adds padding for better spacing on hover */
 }
 
-.article-item {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-small);
+/* Highlight styles */
+.article-item.highlighted,
+.book-item.highlighted,
+.video-item.highlighted {
+    border: 5px solid var(--color-info); /* Example highlight style */
+    border-radius: 8px;
+    background-color: var(--color-background-highlight); /* Example highlight background */
+    position: relative; /* Ensure relative positioning for the button */
+    margin: var(--spacing-small) 0.75rem;
+    padding: var(--spacing-medium); /* Adds padding for better spacing on hover */
+}
+
+.clear-highlight-btn {
+    position: absolute;
+    top: -2px;
+    right: 10px;
+    background: var(--color-close-btn);
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 1; /* Ensure it is above other content */
 }
 
 .article-image {
@@ -171,13 +204,11 @@
     border-radius: 8px;
 }
 
-.article-info {
+.article-info,
+.book-info,
+.video-info {
     flex-grow: 1;
-    margin: var(--spacing-medium) 0 var(--spacing-large); 
-}
-
-.book-item {
-    text-align: center;
+    margin: var(--spacing-medium) 0 var(--spacing-large);
 }
 
 .book-cover {
@@ -189,6 +220,35 @@
 
 .book-info {
     text-align: left;
+}
+
+.video-item-thumbnail {
+    width: 220px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.categories {
+    display: flex;
+    align-items: center;
+    margin-top: var(--spacing-large);
+}
+
+.categories h4 {
+    margin-right: var(--spacing-small);
+}
+
+.category-tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.category-tag {
+    color: var(--color-info);
+    padding: var(--spacing-small) var(--spacing-medium);
+    border-radius: 4px;
+    margin-right: var(--spacing-small);
+    display: inline-block;
 }
 
 .container-btn-link {
@@ -236,24 +296,23 @@
         gap: var(--spacing-medium);
     }
 
-    .container-content-articles {
+    .container-content-articles,
+    .container-content-books,
+    .container-content-videos {
         flex: 1 1 100%;
         display: flex;
         flex-direction: column;
     }
 
-    .container-content-books,
-    .container-content-videos {
-        flex: 1 1 45%; /* Adjust flex basis for better layout */
-    }
-
-    .article-item {
+    .article-item,
+    .book-item,
+    .video-item {
         flex-direction: row; /* Aligns items in a row */
     }
 
-    .book-item {
-        flex-direction: column;
-        align-items: center; /* centers book items */
+    .book-item,
+    .video-item {
+        align-items: center; /* aligns book and video items in row */
     }
 }
 
@@ -319,7 +378,7 @@ h2 {
     /* Center and enlarge images for smaller screens */
     .article-image,
     .book-cover,
-    .video-item img {
+    .video-item-thumbnail {
         width: 100%;
         max-width: 300px;
         height: auto;

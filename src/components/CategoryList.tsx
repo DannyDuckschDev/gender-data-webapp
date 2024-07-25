@@ -16,7 +16,7 @@ const CategoryList: React.FC<CategoryListProps> = ({
   return (
     <ul>
       {categories.map(category => (
-        <li key={category} className={currentCategory === category ? 'active' : ''}>
+        <li key={category} className={currentCategory === category ? 'active-category' : ''}>
           <a href="#" onClick={() => setCurrentCategory(category)}>
             {category}
           </a>

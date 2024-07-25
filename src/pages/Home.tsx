@@ -4,6 +4,8 @@ import Hero from "../components/HeroElement";
 import AboutUs from "../components/AboutUs";
 import DisclaimerBanner from "../components/DisclaimerBanner";
 import ScrollToTopButton from "../components/ScrollToTopButton";
+import BlogPosts from "../components/BlogPosts";
+import blogData from"../data/data.json";
 
 const Home: React.FC = () => {
     return(
@@ -14,6 +16,8 @@ const Home: React.FC = () => {
                 text="I strive to be as inclusive as possible and am always open to feedback. This project has just started, and I greatly appreciate your input on organizations, NGOs, apps, software, and other resources that could be included here."
                 buttonText="To the contact form"
             />
+            <BlogPosts
+                posts={blogData} />
             <ScrollToTopButton
                 selector="body"
             />

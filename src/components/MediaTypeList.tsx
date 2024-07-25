@@ -2,14 +2,29 @@
 
 import React from "react";
 
-const MediaTypeList: React.FC = () => {
-    return (
-        <ul>
-            <li><a href="#article">Article</a></li>
-            <li><a href="#books">Books</a></li>
-            <li><a href="#videos">Videos</a></li>
-        </ul>
-    );
+interface MediaTypeListProps {
+  currentMediaType: string;
+  setCurrentMediaType: (type: string) => void;
+}
+
+const MediaTypeList: React.FC<MediaTypeListProps> = ({ currentMediaType, setCurrentMediaType }) => {
+  const mediaTypes = ['Article', 'Book', 'Video'];
+
+  return (
+    <ul>
+      {mediaTypes.map((type) => (
+        <li 
+          key={type} 
+          className={currentMediaType === type ? 'active-media-type' : ''}
+          onClick={() => setCurrentMediaType(type)}
+        >
+          <a href="#">
+            {type}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
 };
 
 export default MediaTypeList;
