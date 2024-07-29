@@ -5,7 +5,7 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+    box-sizing: border-box; /* Ensures consistent box model for all elements */
 }
 
 .info-page {
@@ -40,15 +40,16 @@
     padding-right: 40px; /*space for the icon*/
 }
 
-.search-bar:hover {
-    border: 4px solid var(--color-hover-border);
+.search-bar:hover,
+.search-bar:focus {
+    border: 4px solid var(--color-hover-border); /* Highlight border on hover and focus */
 }
 
 .search-icon {
     position: absolute;
     right: 10px;
     font-size: 1.5em;
-    color: var(--color-text);
+    color: var(--color-container-background); /* Match the icon color to the container background */
 }
 
 .sidebar {
@@ -79,6 +80,7 @@
 
 .sidebar a {
     color: var(--color-sidebar-text);
+    padding-left: var(--spacing-medium);
 }
 
 /* Styles for the selected category in the sidebar */
@@ -87,7 +89,7 @@
     font-weight: bold;
     background: #b7e4c7a3;
     border-radius: 8px;
-    padding: 0.25rem;
+    padding: var(--spacing-minimal); /* Adds minimal padding for the highlighted item */
 }
 
 
@@ -162,7 +164,7 @@
     display: flex;
     align-items: center;
     gap: var(--spacing-small);
-    padding: 0 1rem;
+    padding: 0 var(--spacing-medium);
 }
 
 .article-item:hover,
@@ -184,6 +186,11 @@
     position: relative; /* Ensure relative positioning for the button */
     margin: var(--spacing-small) 0.75rem;
     padding: var(--spacing-medium); /* Adds padding for better spacing on hover */
+}
+
+.highlight-category{
+
+    background-color: var(--color-background-highlight);  /* Highlight background for category tags */
 }
 
 .clear-highlight-btn {
@@ -219,7 +226,7 @@
 }
 
 .book-info {
-    text-align: left;
+    text-align: left; /* Aligns book info text to the left */
 }
 
 .video-item-thumbnail {
@@ -235,7 +242,7 @@
 }
 
 .categories h4 {
-    margin-right: var(--spacing-small);
+    margin-right: var(--spacing-small); /* Adds space between the heading and tags */
 }
 
 .category-tags {
@@ -267,7 +274,7 @@
     align-items: center;
     justify-content: center;
     width: 40%; /* Ensure consistent width */
-    padding: 0.6rem; /* Ensure consistent padding */
+    padding: var(--spacing-small); /* Ensure consistent padding */
     text-align: center;
     text-decoration: none;
     font-weight: bold;
@@ -312,7 +319,7 @@
 
     .book-item,
     .video-item {
-        align-items: center; /* aligns book and video items in row */
+        align-items: center; /* Aligns book and video items in row */
     }
 }
 
@@ -351,15 +358,13 @@ h2 {
         flex: 1 1 100%; /* Full width within the container */
     }
 
-    .read-link {
+    .read-link,
+    .toggle-description-btn  {
         width: 80%;
-        padding: 0.75rem;
-        margin: 0.5rem;
+        padding: var(--spacing-medium);
+        margin: var(--spacing-small);
     }
 
-    .toggle-description-btn {
-        width: 80%;
-    }
 
     .container-btn-link {
         flex-direction: column;
@@ -370,7 +375,7 @@ h2 {
     .article-item,
     .book-item,
     .video-item {
-        padding: 1rem;
+        padding: var(--spacing-medium);
         flex-direction: column;
         align-items: center;
     }

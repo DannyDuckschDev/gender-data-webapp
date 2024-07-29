@@ -1,36 +1,37 @@
 // src/types.ts
-//Interface for Blogposts on Home.tsx:
+
+// Interface for Blogposts on Home.tsx:
 export interface BlogPost {
-    id: number;
-    name: string;
-    category: string[],
-    type: string;
-    icon: string;
-    article?: {
-        author: string;
-        date: string;
-        image_url: string;
-        url: string;
-        excerpt: string;
-        description: string;
+    id: number; // Unique identifier for the blog post
+    name: string; // Name of the blog post
+    category: string[]; // Categories the blog post belongs to
+    type: string; // Type of the blog post
+    icon: string; // Icon representing the blog post
+    article?: { // Optional article details if the blog post is an article
+        author: string; // Author of the article
+        date: string; // Date of publication
+        image_url: string; // URL to the article image
+        url: string; // URL to read the article
+        excerpt: string; // Excerpt from the article
+        description: string; // Description of the article
     };
-    book?: {
-        author: string;
-        title: string;
-        cover_url: string;
-        shopping_url: string;
-        publication_year: string;
-        excerpt: string;
-        description: string;
+    book?: { // Optional book details if the blog post is a book
+        author: string; // Author of the book
+        title: string; // Title of the book
+        cover_url: string; // URL to the cover image of the book
+        shopping_url: string; // URL to purchase the book
+        publication_year: string; // Year of publication
+        excerpt: string; // Excerpt from the book
+        description: string; // Description of the book
     };
-    video? : {
-        channel: string;
-        platform: string;
-        date: string;
-        url: string;
-        thumbnail: string;
-        excerpt: string;
-        description: string;
+    video?: { // Optional video details if the blog post is a video
+        channel: string; // Channel where the video is published
+        platform: string; // Platform where the video is hosted
+        date: string; // Date of publication
+        url: string; // URL to watch the video
+        thumbnail: string; // Thumbnail image of the video
+        excerpt: string; // Excerpt from the video
+        description: string; // Description of the video
     };
 }
 
@@ -61,7 +62,7 @@ export interface Video {
     platform: string; // Platform where the video is hosted
     date: string; // Date of publication
     url: string; // URL to watch the video
-    thumbnail: string; //Thumbnail of the Video
+    thumbnail: string; // Thumbnail image of the video
     excerpt: string; // Excerpt from the video
     description: string; // Description of the video
 }
@@ -72,9 +73,10 @@ export interface Content {
     name: string; // Name of the content
     category: string[]; // Categories the content belongs to
     type: string; // Type of content (book, article, video)
-    book?: Book; // Book details (if type is book)
-    article?: Article; // Article details (if type is article)
-    video?: Video; // Video details (if type is video)
+    book?: Book; // Optional book details if the content is a book
+    article?: Article; // Optional article details if the content is an article
+    video?: Video; // Optional video details if the content is a video
+    isHighlightedCategory?: boolean; // Optional property to track if category is highlighted
 }
 
 // Interface for content item

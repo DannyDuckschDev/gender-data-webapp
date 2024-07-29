@@ -39,8 +39,10 @@ const Knowledge: React.FC = () => {
   // State to manage the search term
   const [searchTerm, setSearchTerm] = useState('');
   
+  // State to manage the highlighted content
   const [highlightedContent, setHighlightedContent] = useState<number | null > (null);
 
+  // Get the current location to handle URL parameters
   const location = useLocation();
 
   // References for content items
@@ -55,6 +57,7 @@ const Knowledge: React.FC = () => {
     }
   }, [isMobile]);
 
+  // Effect to handle highlighting content based on URL parameters
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const contentId = params.get('id');
@@ -86,7 +89,7 @@ const Knowledge: React.FC = () => {
   };
 
   // Get the filtered contents based on the search term and current category
-  const filteredContents = useFilteredContents(contents, searchTerm, currentCategory);
+  const filteredContents = useFilteredContents(contents, searchTerm, currentCategory, currentMediaType);
 
   // Filter contents by type
   const filteredArticles = filteredContents.filter(content => content.type === 'Article');
@@ -131,6 +134,7 @@ const Knowledge: React.FC = () => {
                     isHighlighted={highlightedContent === content.id} // pass the highlighted state
                     ref={el => (contentRefs.current[content.id] = el)}
                     clearHighlight={() => setHighlightedContent(null)} // Pass clear highlight function
+                    currentCategory={currentCategory}
                   />
                 ))}
               </section>
@@ -150,6 +154,7 @@ const Knowledge: React.FC = () => {
                     isHighlighted={highlightedContent === content.id} // pass the highlighted state
                     ref={el => (contentRefs.current[content.id] = el)}
                     clearHighlight={() => setHighlightedContent(null)} // Pass clear highlight function
+                    currentCategory={currentCategory}
                   />
                 ))}
               </section>
@@ -168,7 +173,8 @@ const Knowledge: React.FC = () => {
                     toggleDescription={toggleDescription}
                     isHighlighted={highlightedContent === content.id} // pass the highlighted state
                     ref={el => (contentRefs.current[content.id] = el)}
-                    clearHighlight={() => setHighlightedContent(null)} // Pass clear highlight function 
+                    clearHighlight={() => setHighlightedContent(null)} // Pass clear highlight function
+                    currentCategory={currentCategory} 
                   />
                 ))}
               </section>

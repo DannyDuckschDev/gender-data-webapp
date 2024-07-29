@@ -54,6 +54,7 @@
     --section-german-color: #72518a;
 
     /* Spacing */
+    --spacing-minimal: 0.25rem;
     --spacing-small: 0.5rem;
     --spacing-medium: 1rem;
     --spacing-large: 2rem;

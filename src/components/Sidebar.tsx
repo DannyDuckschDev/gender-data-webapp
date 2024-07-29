@@ -4,6 +4,7 @@ import React from "react";
 import MediaTypeList from "./MediaTypeList";
 import CategoryList from "./CategoryList";
 
+// Define the props interface for the Sidebar component
 interface SidebarProps {
     isSidebarOpen: boolean;
     toggleSidebar: () => void;
@@ -15,6 +16,7 @@ interface SidebarProps {
     setCurrentMediaType: (type: string) => void;
 }
 
+// Functional component for the sidebar
 const Sidebar: React.FC<SidebarProps> = ({
     isSidebarOpen,
     toggleSidebar,
@@ -26,6 +28,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     setCurrentMediaType
 }) => {
     return (
+        // Sidebar container with conditional class for open state
         <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
             <button className="close-btn" onClick={toggleSidebar}>×</button>
             <h2>Media Types</h2>
