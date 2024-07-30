@@ -14,11 +14,14 @@ import '../styles/button.css';
 const contents: SectionType[] = (contentData as ContentData).sections;
 
 const DownloadPage: React.FC = () => {
+    // Hook to manage the expanded state of sections
     const { isExpanded, toggleExpand } = useToggleExpand();
+    // Hook to manage download progress
     const { downloadProgress, startDownload } = useDownloadProgress();
 
     return (
         <div className="download-page">
+            {/* Render each section */}
             {contents.map((section: SectionType) => (
                 <Section
                     key={section.title}
@@ -29,7 +32,8 @@ const DownloadPage: React.FC = () => {
                     downloadProgress={downloadProgress}
                 />
             ))}
-            <ScrollToTopButton />
+            {/* Scroll to top button for easy navigation */}
+            <ScrollToTopButton selector='body' /> {/*selector needs to be body*/}
         </div>
     );
 };

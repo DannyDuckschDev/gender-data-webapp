@@ -1,37 +1,75 @@
-/*src/styles/variables.css*/
+/* src/styles/variables.css*/
 
 :root {
-    /*basic colors*/
+    /* Basic colors */
     --color-background: #1e1e1e;
     --color-surface: #2c2c2c;
     --color-text: #e0e0e0;
+    --color-background-highlight: #fffacd2c;
 
-    /*contrast colors*/
-    --color-primary: #556b2f;
+    /* Contrast colors */
+    --color-primary: #4a5e26;
     --color-secondary: #4b0082;
     --color-accent: #008080;
+    --color-accent-secondary: rgb(224, 81, 105);
 
-    /*additional colors*/
+    /* Additional colors */
     --color-danger: #800020;
     --color-warning: #b8860b;
     --color-light: #d3d3d3;
     --color-info: #9acd32;
+    --color-background-disclaimer: #5a9bd4; 
 
-    /*Info.css specific colors */
+    /*Home.css specific colors*/
+    --color-accordion-light: #B7E4C7;
+    --color-accordion-medium: #74C69D;
+    --color-accordion-dark: #40916C;
+    --color-text-item: #0b483b; 
+
+
+    /* Knowledge.css specific colors */
     --color-sidebar-background: #1ABC9C;
-    --color-sidebar-text: #e0e0e0;
+    --color-sidebar-text: #565655;
     --color-close-btn: #b46666;
     --color-container-background: #0b483b;
     --color-hover-border: #1abc9cc2;
+    --color-sidebar-heading: #2f4f4f;
+    --color-read-btn: #a877ccfa;
+    --color-link-content: #b8860b;
+    --color-background-highlight: #fffacd2c;
 
-    /*Contact.css specific colors*/
+    /* Contact.css specific colors */
     --color-contact-background: #565655;
     --heading-color: #094236;
     --input-background-color: #333;
     --input-border-color: #565655;
     --input-hover-border-color: #1abc9cc2;
+    --success-bg-color: rgb(174, 174, 111) ;
+    --success-text-color: rgb(75, 75, 47);
+    --error-bg-color: #800020;
+    --error-text-color: #d5aab5;
 
-    /*download.css specific colors*/
+    /*support.css*/
+    --color-clinic-name: #2f4f4f;
+    --color-text-clinic: #0b483b;
+    --color-a-clinic: #4b0082;
+
+    /* download.css specific colors */
     --section-international-color: #b8860b;
-    --section-germany-color: #664082;
+    --section-german-color: #72518a;
+
+    /* Spacing */
+    --spacing-minimal: 0.25rem;
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 2rem;
+
+    /* Font sizes */
+    --font-size-small: 0.875rem;
+    --font-size-medium: 1rem;
+    --font-size-large: 1.25rem;
+
+    /* Font families */
+    --font-family-primary: 'Arial', sans-serif;
+    --font-family-secondary: 'Courier New', monospace;
 }

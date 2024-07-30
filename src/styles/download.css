@@ -1,9 +1,22 @@
 /*Backup download.css*/
 /* src/styles/download.css */
+
 .download-page {
     padding: 20px;
     background-color: var(--color-background);
     color: var(--color-text);
+    overflow-y: auto; /*Ensures that the page is scrollable*/
+    min-height: 100vh;
+}
+
+.card-content p{
+    width: 70%;
+}
+
+.card-content p a{
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 0.35rem;
 }
 
 h2.international {
@@ -11,9 +24,18 @@ h2.international {
     margin-bottom: 10px;
 }
 
-h2.germany {
-    color: var(--section-germany-color);
+h2.german {
+    color: var(--section-german-color);
     margin-bottom: 10px;
+}
+
+/* Specific styling for h4 in different sections */
+.international .card-content h4 {
+    color: var(--section-international-color); /* Yellow */
+}
+
+.german .card-content h4 {
+    color: var(--section-german-color); /* Purple */
 }
 
 .section-separator.international {
@@ -23,10 +45,10 @@ h2.germany {
     margin-bottom: 20px;
 }
 
-.section-separator.germany {
+.section-separator.german {
     width: 100%;
     height: 5px;
-    background-color: var(--section-germany-color);
+    background-color: var(--section-german-color);
     margin-bottom: 20px;
 }
 
@@ -51,7 +73,6 @@ h2.germany {
 .card-header:hover {
     background-color: var(--color-hover-border);
 }
-
 
 .card-content {
     padding: 15px;
@@ -111,12 +132,9 @@ h2.germany {
     100% {transform: rotate(360deg);}
 }
 
-.map-placeholder {
-    width: 100%;
-    height: 200px;
-    background-color: var(--color-light);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--color)
+@media (max-width: 768px) {
+    .card-content p{
+        width: 100%;
+    }
+    
 }

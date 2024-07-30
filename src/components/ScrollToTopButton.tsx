@@ -2,28 +2,24 @@ import React from 'react';
 import '../styles/button.css';
 import useScrollToTop from '../hooks/useScrollToTop';
 
+interface ScrollToTopButtonProps {
+  selector: string; // Selector for the element to watch for scroll events
+}
 
-/*Button component to scroll the window to the top
-@retun {JSX.Element} ScrollToTopButton component*/
+// ScrollToTopButton component definition
+const ScrollToTopButton: React.FC<ScrollToTopButtonProps> = ({ selector }) => {
+  // Use the custom hook to get showScroll state and scrollToTop function
+  const { showScroll, scrollToTop } = useScrollToTop(selector);
 
-const ScrollToTopButton: React.FC = () => { 
-    const {showScroll, scrollToTop} = useScrollToTop();
-
-    /* Debug output
-    console.log('ScrollToTopButton rendered');
-    console.log('showScroll:', showScroll);
-    */
-    return (
-        <button
-          // Conditionally apply 'show' class based on showScroll prop
-          className={`scroll-to-top ${showScroll ? 'show' : ''}`}
-          // Attach the scrollToTop function to the button's onClick event
-          onClick={scrollToTop}
-        >
-          &#8679;
-        </button>
-      );
- };
-
+  return (
+    // Button element with conditional class based on showScroll state
+    <button
+      className={`scroll-to-top ${showScroll ? 'show' : ''}`}
+      onClick={scrollToTop} // Attach scrollToTop function
+    >
+      &#8679; {/* Up arrow symbol */}
+    </button>
+  );
+};
 
 export default ScrollToTopButton;

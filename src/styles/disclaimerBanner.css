@@ -1,0 +1,69 @@
+@import './variables.css';
+
+.disclaimer-banner {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-background-disclaimer);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 98%;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.disclaimer-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.disclaimer-icon {
+  margin: 10px 0;
+}
+
+.disclaimer-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.disclaimer-content p {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.disclaimer-content button {
+  background-color: var(--color-warning);
+  color: white;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.disclaimer-content button:hover {
+  background-color: var(--color-secondary);
+}
+
+@media (max-width: 768px) {
+  .disclaimer-banner {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .disclaimer-icons {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .disclaimer-icon {
+    margin: 0 10px;
+  }
+}

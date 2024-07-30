@@ -1,10 +1,9 @@
 // src/App.tsx
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import Knowledge from './pages/Knowledge'; 
+import Knowledge from './pages/Knowledge';
 import Support from './pages/Support';
 import Downloads from './pages/Downloads';
 import Contact from './pages/Contact';

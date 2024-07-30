@@ -1,158 +1,191 @@
-import React, { useState, useEffect } from 'react';
+// src/pages/Knowledge.tsx
+import React, { useEffect, useState, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import data from '../data/data.json';
 import { Content } from '../types';
 import '../styles/knowledge.css';
 import ScrollToTopButton from '../components/ScrollToTopButton';
-import '../styles/button.css';
+import Sidebar from '../components/Sidebar';
+import useWindowSize from '../hooks/useWindowSize';
+import useCategories from '../hooks/useCategories';
+import useFilteredContents from '../hooks/useFilteredContents';
+import ArticleItem from '../components/ArticleItem';
+import BookItem from '../components/BookItem';
+import VideoItem from '../components/VideoItem';
+import SearchBar from '../components/SearchBar';
 
-// Initialize the contents from the imported data
+
 const contents: Content[] = data;
 
-const Info: React.FC = () => {
-
-  // State variables for sidebar, mobile view, current category, and categories list
+const Knowledge: React.FC = () => {
+  // State to manage sidebar visibility
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
+  
+  // Determine if the device is mobile
+  const isMobile = useWindowSize();
+  
+  // State to manage the current category filter
   const [currentCategory, setCurrentCategory] = useState('All');
-  const [categories, setCategories] = useState<string[]>([]);
+  
+  // State to manage the current media type filter
+  const [currentMediaType, setCurrentMediaType] = useState('All');
+  
+  // Get categories from contents
+  const categories = useCategories(contents);
+  
+  // State to manage which content is expanded
+  const [expandedContent, setExpandedContent] = useState<number | null>(null);
+  
+  // State to manage the search term
+  const [searchTerm, setSearchTerm] = useState('');
+  
+  // State to manage the highlighted content
+  const [highlightedContent, setHighlightedContent] = useState<number | null > (null);
+
+  // Get the current location to handle URL parameters
+  const location = useLocation();
+
+  // References for content items
+  const contentRefs = useRef<{ [key: number]: HTMLElement | null}>({});
+
+  // Effect to handle sidebar visibility based on window size
+  useEffect(() => {
+    if (isMobile) {
+      setIsSidebarOpen(false);
+    } else {
+      setIsSidebarOpen(true);
+    }
+  }, [isMobile]);
+
+  // Effect to handle highlighting content based on URL parameters
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const contentId = params.get('id');
+    if (contentId) {
+      const id = parseInt(contentId);
+      setHighlightedContent(id);
+      setExpandedContent(id);
+      setTimeout(() => {
+        contentRefs.current[id]?.scrollIntoView({behavior: 'smooth', block: 'start'});
+      }, 100); // Ensure the DOM has rendered before scrolling
+    }
+  }, [location.search]);
 
   // Function to toggle the sidebar's visibility
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  // Handle window resize to adjust the view for mobile
-  const handleResize = () => {
-    if (window.innerWidth <= 768) {
-      setIsMobile(true);
-      setIsSidebarOpen(false);
-    } else {
-      setIsMobile(false);
-      setIsSidebarOpen(true);
-    }
-  };
-
-  // Filter contents by the current category
-  const filterContentsByCategory = () => {
-    if (currentCategory === 'All') {
-      return contents;
-    }
-    return contents.filter(content => content.category.includes(currentCategory));
-  };
-
-  // Extract unique categories from the contents
-  const extractCategories = (contents: Content[]): string[] => {
-    const categoriesSet = new Set<string>();
-    contents.forEach(content => {
-      content.category.forEach(cat => categoriesSet.add(cat));
-    });
-    return Array.from(categoriesSet);
-  };
-
-  // Reset filters to show all contents
+  // Function to reset category filters
   const resetFilters = () => {
     setCurrentCategory('All');
+    setCurrentMediaType('All');
+    setHighlightedContent(null); // Reset highlight
   };
 
-  // useEffect to handle initial setup and window resize event listener
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    handleResize(); // Initial check
-    const uniqueCategories = extractCategories(contents);
-    setCategories(uniqueCategories);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  // Function to toggle the description of the content
+  const toggleDescription = (id: number) => {
+    setExpandedContent(expandedContent === id ? null : id);
+  };
 
-  // Get filtered contents based on the current category
-  const filteredContents = filterContentsByCategory();
+  // Get the filtered contents based on the search term and current category
+  const filteredContents = useFilteredContents(contents, searchTerm, currentCategory, currentMediaType);
+
+  // Filter contents by type
+  const filteredArticles = filteredContents.filter(content => content.type === 'Article');
+  const filteredBooks = filteredContents.filter(content => content.type === 'Book');
+  const filteredVideos = filteredContents.filter(content => content.type === 'Video');
 
   return (
     <div className="info-page">
-      {/* Sidebar containing media types and categories */}
-      <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-        <button className="close-btn" onClick={toggleSidebar}>×</button>
-        <h2>Media Types</h2>
-        <ul>
-          <li><a href="#article">Article</a></li>
-          <li><a href="#books">Books</a></li>
-          <li><a href="#videos">Videos</a></li>
-        </ul>
-        <h2>Categories</h2>
-        <ul>
-          {categories.map(category => (
-            <li key={category}>
-              <a href="#" onClick={() => setCurrentCategory(category)}>
-              {category}</a>
-            </li>
-          ))}
-        </ul>
-        <button className='reset-btn' onClick={resetFilters}>Reset</button>
-      </div>
-       {/* Main content area */}
+      {/* Sidebar component with categories and filters */}
+      <Sidebar
+        isSidebarOpen={isSidebarOpen}
+        toggleSidebar={toggleSidebar}
+        categories={categories}
+        currentCategory={currentCategory}
+        setCurrentCategory={setCurrentCategory}
+        resetFilters={resetFilters}
+        currentMediaType={currentMediaType}
+        setCurrentMediaType={setCurrentMediaType}
+      />
+      {/* Main content area */}
       <div className={`content ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+        {/* Toggle button for sidebar visibility on mobile devices */}
         {isMobile && <button className="menu-btn" onClick={toggleSidebar}>☰</button>}
         <h1>Information</h1>
+        {/* Search bar for filtering content */}
+        <div className='search-container'>
+          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        </div>
+        {/* Section for displaying media content */}
         <div className="media-section">
-          {/* Section for articles */}
-          <section className="container-content-articles">
-            <h2 id='article'>Articles</h2>
-            {filteredContents.filter(content => content.types.includes('Article'))
-              .map(content => (
-                <div key={content.id} className="article-item">
-                  {content.article && (
-                    <>
-                      {content.article.image_url && <img src={content.article.image_url} alt={content.name} className="article-image" />}
-                      <div className="article-info">
-                        <h3>{content.name}</h3>
-                        <p>Author: {content.article.author}</p>
-                        <p>Date: {content.article.date}</p>
-                        <a href={content.article.url}>Read the article</a>
-                      </div>
-                    </>
-                  )}
-                </div>
-              ))}
-          </section>
-          {/* Section for books */}
-          <section className="container-content-books">
-            <h2 id='books'>Books</h2>
-            {filteredContents.filter(content => content.types.includes('Book'))
-              .map(content => (
-                <div key={content.id} className="book-item">
-                  {content.book && (
-                    <>
-                      {content.book.cover_url && <img src={content.book.cover_url} alt={content.name} className="book-cover" />}
-                      <div className="book-info">
-                        <h3>{content.name}</h3>
-                        <p>Author: {content.book.author}</p>
-                        <p>Title: {content.book.title}</p>
-                        <p>Publication Year: {content.book.publication_year}</p>
-                        <a href={content.book.shopping_url}>Buy this book</a>
-                      </div>
-                    </>
-                  )}
-                </div>
-              ))}
-          </section>
-          {/* Section for videos */}
-          <section className="container-content-videos">
-            <h2 id='videos'>Videos</h2>
-            {filteredContents.filter(content => content.types.includes('Video'))
-              .map(content => (
-                <div key={content.id} className='video-item'>
-                  <h3>{content.name}</h3>
-                  {content.video && (
-                    <a href={content.video.url}>Watch the video</a>
-                  )}
-                </div>
-              ))}
-          </section>
+          {/* Articles section */}
+          {currentMediaType === 'All' || currentMediaType === 'Article' ? (
+            filteredArticles.length > 0 && (
+              <section className="container-content-articles">
+                <h2 id="article">Articles</h2>
+                {filteredArticles.map(content => (
+                  <ArticleItem
+                    key={content.id}
+                    content={content}
+                    isExpanded={expandedContent === content.id}
+                    toggleDescription={toggleDescription}
+                    isHighlighted={highlightedContent === content.id} // pass the highlighted state
+                    ref={el => (contentRefs.current[content.id] = el)}
+                    clearHighlight={() => setHighlightedContent(null)} // Pass clear highlight function
+                    currentCategory={currentCategory}
+                  />
+                ))}
+              </section>
+            )
+          ) : null}
+          {/* Books section */}
+          {currentMediaType === 'All' || currentMediaType === 'Book' ? (
+            filteredBooks.length > 0 && (
+              <section className="container-content-books">
+                <h2 id="books">Books</h2>
+                {filteredBooks.map(content => (
+                  <BookItem
+                    key={content.id}
+                    content={content}
+                    isExpanded={expandedContent === content.id}
+                    toggleDescription={toggleDescription}
+                    isHighlighted={highlightedContent === content.id} // pass the highlighted state
+                    ref={el => (contentRefs.current[content.id] = el)}
+                    clearHighlight={() => setHighlightedContent(null)} // Pass clear highlight function
+                    currentCategory={currentCategory}
+                  />
+                ))}
+              </section>
+            )
+          ) : null}
+          {/* Videos section */}
+          {currentMediaType === 'All' || currentMediaType === 'Video' ? (
+            filteredVideos.length > 0 && (
+              <section className="container-content-videos">
+                <h2 id="videos">Videos</h2>
+                {filteredVideos.map(content => (
+                  <VideoItem
+                    key={content.id}
+                    content={content}
+                    isExpanded={expandedContent === content.id}
+                    toggleDescription={toggleDescription}
+                    isHighlighted={highlightedContent === content.id} // pass the highlighted state
+                    ref={el => (contentRefs.current[content.id] = el)}
+                    clearHighlight={() => setHighlightedContent(null)} // Pass clear highlight function
+                    currentCategory={currentCategory} 
+                  />
+                ))}
+              </section>
+            )
+          ) : null}
         </div>
       </div>
-      {/* Scroll-to-top button */}
-      <ScrollToTopButton/>
+      {/* Scroll to top button for easy navigation */}
+      <ScrollToTopButton selector='.content' />
     </div>
   );
 };
 
-export default Info;
+export default Knowledge;

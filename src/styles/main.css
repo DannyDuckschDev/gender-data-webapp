@@ -18,21 +18,35 @@ header{
     border-bottom: 1px solid #333;
 }
 
+.active-link a{
+    font-weight: bold;
+    background-color: var(--color-background-highlight);
+    padding:  var(--spacing-large);
+}
+
 nav ul{
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /*spacing for items*/
+}
+
+nav ul li{
+    margin: 0.5rem;
 }
 
 nav ul li a{
     text-decoration: none;
     color:  var(--color-text);
     padding: 0.75rem;
+    transition: all 0.3s ease;
 }
 
 nav ul li a:hover{
-    text-decoration: underline;
+    color: var(--color-info);
+    border-bottom: 2px solid var(--color-primary);
 }
 
 footer{
@@ -53,7 +67,7 @@ p{
 
 ul{
     padding: 0;
-    margin: 0.5rem 0rem;
+    margin: 0.5rem 0;
 }
 
 a{
@@ -85,9 +99,25 @@ button.accent{
 }
 
 @media (max-width: 786px) {
+    header{
+        padding: 1rem 2rem; /*Adjust padding for smaller screens*/
+    }
+
+    .active-link a {
+        padding: var(--spacing-medium) 7rem; /*Highlight active nav element wider*/
+    }
     nav ul{
         flex-direction: column;
         align-items: center;
+    }
+
+    nav ul li{
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a{
+        padding: 1rem 0; /*Increase padding for touch targets*/
     }
 
 }

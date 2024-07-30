@@ -1,42 +1,39 @@
-/* src/styles/support.css*/
+/* src/styles/support.css */
+@import './variables.css';
 
 .support-page {
     padding: 20px;
     background-color: var(--color-background);
     color: var(--color-text);
+    overflow-y: auto; /*Ensures that the page is scrollable*/
+    min-height: 100vh;
 }
 
-.disclaimer-banner {
-    background-color: var(--color-warning);
-    color: var(--color-text);
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
+/* Styling for the container holding support cards */
 .support-cards {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
 
-.support-card {
-    background-color: var(--color-container-background);
+.support-card, .map-card {
+    background-color: var(--color-background-content);
     border: 1px solid var(--color-hover-border);
     border-radius: 8px;
     overflow: hidden;
-    width: 48%;
-    height: 150px; /* Set a fixed height for the cards */
-    margin-bottom: 20px;
-    transition: height 0.3s ease; /* Transition only the height */
+    transition: height 0.3s ease, background-color 0.3s ease;
 }
 
+.support-card {
+    width: 49%;
+    height: 105px;
+    margin-bottom: 20px;
+}
+
+/* Expanded state of the support card */
 .support-card.expanded {
-    height: auto; /* Allow the height to adjust automatically */
-    overflow: visible; /* Ensure that the expanded content is visible */
+    height: auto;
+    overflow: visible;
 }
 
 .card-header {
@@ -45,8 +42,8 @@
     align-items: center;
     padding: 15px;
     cursor: pointer;
-    background-color: var(--color-surface);
     color: var(--color-text);
+    background-color: var(--color-surface);
     position: relative;
 }
 
@@ -58,43 +55,84 @@
     cursor: pointer;
 }
 
+/* Content inside the card */
 .card-content {
     padding: 15px;
-    background-color: var(--color-surface);
     color: var(--color-text);
-    display: none; /* Hide the content initially */
+    display: none;
 }
 
-.support-card.expanded .card-content {
-    display: block; /* Show the content when the card is expanded */
+.support-card.expanded .card-content,
+.map-card.expanded .card-content {
+    display: block;
 }
-
 
 .map-card {
     width: 100%;
-    height: 800px; /* Ensure the map card height is fixed */
-    position: relative; /* Ensure the map container positioning is correct */
+    height: auto;
+    position: relative;
 }
 
 .map-card-content {
     width: 100%;
-    height: 100%; /* Ensure the map container fills the parent */
+    height: auto;
+}
+/* Fixed height to ensure full map visibility */
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 630px; 
+    width: 100%;
 }
 
 .map-card .leaflet-container {
-    width: 100%;
-    height: 100%; /* Ensure the map container fills the parent */
+    max-width: 1000px;
+    width: 60%;
+    margin-top: var(--spacing-medium);
 }
-.clinic-name{
-    color: var(--color-background);
+
+.leaflet-container a {
+    color: var(--color-a-clinic) !important; /*Increase Specificity - Ensure chosen anchor color is displayed over the standard color from leaflet*/
+    font-weight: bolder;
+    font-size: var(--font-size-medium);
+}
+
+.leaflet-container a:hover{
+    text-decoration: underline;
+}
+
+.leaflet-popup-content{
+    width: 330px !important; /*Increase Specificity - Ensure the width of the popup is wide enough*/
+}
+
+.clinic-info-row{
+    display: inline;
+}
+#clinic-name {
+    color: var( --color-clinic-name); /*Increase Specificity - Ensure there are no more specific selectors that override the .card-content background color (also used in downloads.css) */
+    font-size: var(--font-size-medium);
 }
 
 .clinic-info {
-    color: var(--color-text);
+    color: var( --color-text-clinic);
     font-weight: bold;
+    font-size: var(--font-size-small);
     margin-bottom: 5px;
 }
 
+.leaflet-popup-content p{
+    font-size: var(--font-size-small);
+}
+
+/* Footer-like container for copyright styling */
+.container-contact-copyright {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--color-text);
+}
+
+/* Responsive design adjustments for small screens */
 @media (max-width: 768px) {
     .support-card {
         width: 100%;
@@ -106,7 +144,13 @@
 
     .map-card {
         width: 100%;
-        height: 1200px; /* Ensure the map card height is fixed */
-        position: relative; /* Ensure the map container positioning is correct */
+        height: auto;
+        position: relative;
+    }
+
+    .map-card .leaflet-container {
+        max-width: 1000px;
+        width: 100%;
+        margin-top: var(--spacing-medium);
     }
 }

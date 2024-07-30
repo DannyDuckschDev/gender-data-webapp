@@ -1,0 +1,27 @@
+[
+    {
+      "id": "dickpics",
+      "title": "Easy Criminal Charge against Dickpics",
+      "icon": "gavel", 
+      "content": "The website helps you to easily and quickly file a report against unsolicited sexual pictures.",
+      "buttonText": "Go to Website",
+      "buttonLink": "https://dickstinction.com/"
+    },
+    {
+      "id": "noa",
+      "title": "NoA - Nummer ohne Anruf",
+      "icon": "phone",
+      "content": "In case someone asks for your name, your number or your Instagram account, but you want to remain anonymous, introduce yourself as 'Noa' and pass on the number 0157 5302 4990 or the Instagram account @_call_me_noa_. The other person will automatically receive a message explaining that you were not feeling well.",
+      "buttonText": "Go to Website",
+      "buttonLink": "https://noanruf.de/"
+    },
+    {
+      "id": "violence-against-women",
+      "title": "Comprehensive Support for Violence Against Women",
+      "icon": "handsHelping",
+      "content": "Violence against women takes many forms. Whether it's domestic violence, sexual assault and rape, stalking, human trafficking, or violence associated with prostitution or genital mutilation – qualified counselors provide confidential support to women seeking help for all types of violence.It starts with everyday harassment, misogynistic language, jokes, and insults. Violence also occurs when women's personal freedom is restricted, forcing them to avoid certain places, paths, or situations to escape harassment or threats. Direct forms of violence against women include sexual harassment, humiliation, insults, beatings, threats, social control, sexual coercion, stalking, or rape.Here you will find information on various forms of violence against women.",
+      "buttonText": "Go to Website",
+      "buttonLink": "https://www.hilfetelefon.de/gewalt-gegen-frauen.html"
+    }
+  ]
+  
