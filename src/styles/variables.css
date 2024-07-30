@@ -5,6 +5,7 @@
     --color-background: #1e1e1e;
     --color-surface: #2c2c2c;
     --color-text: #e0e0e0;
+    --color-background-highlight: #fffacd2c;
 
     /* Contrast colors */
     --color-primary: #4a5e26;
@@ -43,6 +44,10 @@
     --input-background-color: #333;
     --input-border-color: #565655;
     --input-hover-border-color: #1abc9cc2;
+    --success-bg-color: rgb(174, 174, 111) ;
+    --success-text-color: rgb(75, 75, 47);
+    --error-bg-color: #800020;
+    --error-text-color: #d5aab5;
 
     /*support.css*/
     --color-clinic-name: #2f4f4f;

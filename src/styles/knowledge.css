@@ -321,11 +321,20 @@
     .video-item {
         align-items: center; /* Aligns book and video items in row */
     }
+
+    h2 {
+        margin-bottom: var(--spacing-small);
+    }
+
+    .clear-highlight-btn{
+        right: -10px;
+        padding: 8px 14px;
+
+    }
 }
 
-h2 {
-    margin-bottom: var(--spacing-small);
-}
+
+
 
 @media (max-width: 768px) {
     .sidebar {
@@ -384,7 +393,7 @@ h2 {
     .article-image,
     .book-cover,
     .video-item-thumbnail {
-        width: 100%;
+
         max-width: 300px;
         height: auto;
         margin: var(--spacing-medium) auto;
@@ -392,5 +401,15 @@ h2 {
 
     .book-item {
         text-align: center; /* Centers text in book items */
+    }
+
+    .clear-highlight-btn{
+        top: -2px;
+        right: -11px;
+        padding: 8px 14px;
+    }
+
+    .article-item.highlighted, .book-item.highlighted, .video-item.highlighted{
+        padding: 2.5rem var(--spacing-medium) var(--spacing-medium);
     }
 }

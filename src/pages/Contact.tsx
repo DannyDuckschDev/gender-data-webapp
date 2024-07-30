@@ -1,108 +1,73 @@
-// src/pages/Kontakt.tsx
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+// src/pages/Contact.tsx
+import React from 'react';
+import useContactForm from '../hooks/useContactForm';
+import FormInput from '../components/FormInput';
+import FormTextarea from '../components/FormTextarea';
 import '../styles/contact.css';
 
 const Contact: React.FC = () => {
-    const [name, setName] = useState<string>('');
-    const [email, setEmail] = useState<string>('');
-    const [message, setMessage] = useState<string>('');
-    const [error, setError] = useState<string>('');
-    const [success, setSuccess] = useState<JSX.Element | string>('');
-
-    const sanitizeInput = (input: string): string => {
-        const element = document.createElement('div');
-        element.innerHTML = input;
-        return element.innerHTML;
-    };
-
-    const validateForm = () => {
-        if (!name || !email || !message) {
-            return 'All fields are required.';
-        }
-        return '';
-    }
-
-    const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
-        e.preventDefault();
-
-        const validationError = validateForm();
-        if (validationError) {
-            setError(validationError);
-            setSuccess('');
-            return;
-        }
-
-        const sanitizeName = sanitizeInput(name);
-        const sanitizeEmail = sanitizeInput(email);
-        const sanitizeMessage = sanitizeInput(message);
-
-        console.log('Name: ', sanitizeName);
-        console.log('Email: ', sanitizeEmail);
-        console.log('Message: ', sanitizeMessage);
-
-        //reset form
-        setName('');
-        setEmail('');
-        setMessage('');
-
-        setError('');
-        setSuccess(
-            <span>Your message has been submitted successfully. <span className="emoji">📨</span></span>
-        )
-    };
+    // Using custom hook to manage form state and handlers
+    const {
+        name,
+        email,
+        message,
+        error,
+        success,
+        handleChange,
+        handleSubmit
+    } = useContactForm();
 
     return (
         <div>
+            {/* Banner section with image */}
             <div className="banner-container">
                 <img src="https://images.unsplash.com/photo-1509085702214-9178b0941e25?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="An open mailbox with different letters which are touched by moody sunlight." className='banner-image' />
             </div>
+            {/* Contact form container */}
             <div className="contact-container">
                 <h1>Contact Me</h1>
                 <p>Get in touch with me through the Contact section! I value feedback an inquiries about the gender data app. Whether you habe questions and / or suggestions, the contact form is here to help. Simply fill out your name, email and message and I&#39;ll get back to you as soon as possible.</p>
+                {/* Contact form */}
                 <form onSubmit={handleSubmit}>
                     <div className="form-row">
-                        <div className="form-group half-width">
-                            <label htmlFor="name">Name:</label>
-                            <input 
-                            type="text"
+                        <FormInput 
                             id="name"
+                            label="Name"
                             value={name}
-                            onChange={(e : ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+                            onChange={handleChange}
                             required 
-                            />
-                        </div>
-                        <div className="form-group half-width">
-                            <label htmlFor="email">Email:</label>
-                            <input 
-                            type="text"
+                        />
+                        <FormInput 
                             id="email"
+                            label="Email"
                             value={email}
-                            onChange={(e : ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                            onChange={handleChange}
                             required
-                            />
-                        </div>
+                        />
                     </div>
-                    <div className="form-group">
-                        <label htmlFor="message">Message:</label>
-                        <textarea
+                    <FormTextarea
                         id="message"
+                        label="Message"
                         value={message}
-                        onChange={(e : ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
-                        required></textarea>
-                    </div>
+                        onChange={handleChange}
+                        required
+                    />
                     <div className="form-group centered">
                         <button className="submit-button" type="submit">Send</button>
                     </div>
                 </form>
+                {/* Display error message if any */}
                 {error && <p className="error-message">{error}</p>}
+                {/* Display success message if form is submitted successfully */}
                 {success && <p className="success-message">{success}</p>}
             </div>
+            {/* Copyright container */}
             <div className="container-contact-copyright">
                 <p>Photo by <a href="https://unsplash.com/de/@californong">Nong</a> on <a href="https://unsplash.com/de">Unsplash</a></p>
             </div>
         </div>
         
     );
-}
+};
 
 export default Contact;
