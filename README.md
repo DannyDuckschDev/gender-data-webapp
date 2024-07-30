@@ -55,19 +55,41 @@ gender-data-app/
 │   ├── assets/
 │   │   └── react.svg
 │   ├── components/
+│   │   ├── AboutUs.tsx
+│   │   ├── ArticleItem.tsx
+│   │   ├── BlogPosts.tsx
+│   │   ├── BookItem.tsx
+│   │   ├── CategoryList.tsx
+│   │   ├── DisclaimerBanner.tsx
 │   │   ├── DownloadButton.tsx
 │   │   ├── DownloadCard.tsx
 │   │   ├── Footer.tsx
+│   │   ├── FormInput.tsx
+│   │   ├── FormTextarea.tsx
 │   │   ├── Header.tsx
+│   │   ├── HeroElement.tsx
+│   │   ├── MapSupport.tsx
+│   │   ├── MediaTypeList.tsx
+│   │   ├── OutpatientClinicInfo.tsx
 │   │   ├── ScrollToTopButton.tsx
-│   │   └── Section.tsx
+│   │   ├── SearchBar.tsx
+│   │   ├── Section.tsx
+│   │   ├── Sidebar.tsx
+│   │   ├── SupportCard.tsx
+│   │   └── VideoItem.tsx
 │   ├── data/
+│   │   ├── clinicForVictims.json
 │   │   ├── data.json
-│   │   └── downloadContent.json
+│   │   ├── downloadContent.json
+│   │   └── supportCards.json
 │   ├── hooks/
+│   │   ├── useCategories.ts
+│   │   ├── useContactForm.tsx
 │   │   ├── useDownloadProgress.ts
-│   │   ├── useScrollToTop.tsx
-│   │   └── useToggleExpand.tsx
+│   │   ├── useFilteredContents.ts
+│   │   ├── useScrollToTop.ts
+│   │   ├── useToggleExpand.ts
+│   │   └── useWindowSize.ts
 │   ├── pages/
 │   │   ├── Contact.tsx
 │   │   ├── Downloads.tsx
@@ -75,9 +97,13 @@ gender-data-app/
 │   │   ├── Knowledge.tsx
 │   │   └── Support.tsx
 │   ├── styles/
+│   │   ├── aboutUs.css
+│   │   ├── blogPosts.css
 │   │   ├── button.css
 │   │   ├── contact.css
+│   │   ├── disclaimerBanner.css
 │   │   ├── download.css
+│   │   ├── hero.css
 │   │   ├── knowledge.css
 │   │   ├── main.css
 │   │   ├── support.css
