@@ -64,7 +64,7 @@
     {
         "id": 5,
         "name": "Steigende Fallzahlen bei Opferambulanzen",
-        "category": ["Female Health", "Safety", "German Article"],
+        "category": ["Female Health", "Safety", "German"],
         "type": "Article",
         "icon": "file-art",
         "article": {
@@ -74,6 +74,53 @@
             "url": "https://www.zeit.de/news/2023-12/25/steigende-fallzahlen-bei-opferambulanzen",
             "excerpt": "Detaillierte Informationen über die steigenden Fallzahlen bei Opferambulanzen und ihre Auswirkungen auf die Gesellschaft.",
             "description": "Dieser Artikel von Zeit Online / Deutsche Presseagentur, veröffentlicht am 25. Dezember 2023, bietet einen detaillierten Überblick über die steigenden Fallzahlen bei Opferambulanzen und deren Auswirkungen auf die Gesellschaft. Der Artikel beleuchtet, wie die zunehmende Gewalt gegen Frauen und andere marginalisierte Gruppen zu einem höheren Bedarf an Unterstützung und Dienstleistungen führt. Er unterstreicht die Wichtigkeit von Opferambulanzen als sichere Zufluchtsorte, die vertrauliche, kostenlose und rechtlich anerkannte Untersuchungen anbieten. Diese Einrichtungen sind essenziell für die medizinische und psychologische Versorgung von Opfern und helfen dabei, Beweismaterial für spätere strafrechtliche Verfolgungen zu sichern."
+        }
+    },
+    {
+ 
+        "id": 6,
+        "name": "Das Dilemma der 'Damen'-Toiletten: Wie Unisex-Toiletten die Lösung sein könnten",
+        "category": ["Gesundheit", "Infrastruktur", "German"],
+        "type": "Article",
+        "icon": "file-art",
+        "article": {
+            "author": "Universität Gent",
+            "date": "14. Juli 2017",
+            "image_url": "https://pm-wissen.com/wp-content/uploads/2021/06/Damteoilette-i-0116268554h.jpg",
+            "url": "https://www.sciencedaily.com/releases/2017/07/170714142749.htm",
+            "excerpt": "Dieser Artikel beschreibt die frustrierende Erfahrung, die viele Frauen* in öffentlichen Einrichtungen mit langen Warteschlangen vor den Damentoiletten machen. Untersuchungen zeigen, dass Frauen* im Durchschnitt sechs Minuten warten müssen, während Männer nur elf Sekunden benötigen. Eine Lösung wäre die Einführung von Unisex-Toiletten, die die Wartezeiten erheblich reduzieren könnten.",
+            "description": "Der Artikel behandelt die Problematik der langen Warteschlangen vor Damentoiletten, die viele Frauen* regelmäßig erleben. Studien zeigen, dass Frauen im Durchschnitt sechs Minuten warten müssen, während Männer nur etwa elf Sekunden brauchen. Dies führt zu erheblichen Ungleichheiten und Unannehmlichkeiten.Forscher der Universität Gent haben verschiedene Toilettenlayouts untersucht und herausgefunden, dass Unisex-Toiletten die effizienteste Lösung darstellen. In gemischten Toilettenlayouts, bei denen die Kabinen für beide Geschlechter zugänglich sind und optional zusätzliche Urinale für Männer vorhanden sind, kann die verfügbare Toilettenfläche am effizientesten genutzt werden. Diese Lösung kann die durchschnittliche Wartezeit um bis zu 63 % reduzieren, was durch keine andere Layout-Option erreicht werden kann. Im Idealfall sollte ein ausgewogenes Layout etwa zwei Kabinen pro Urinal umfassen.Der Artikel betont, dass die Einführung von Unisex-Toiletten nicht nur die Wartezeiten erheblich verkürzen würde, sondern auch dazu beitragen könnte, Geschlechtergleichheit zu fördern und den Komfort für alle zu erhöhen."
+        } 
+    },
+    {
+        "id": 7,
+        "name": "Time to Redefine Normal Body Temperature",
+        "category": ["Female Health", "Medicine", "English Article"],
+        "type": "Article",
+        "icon": "file-art",
+        "article": {
+          "author": "Robert H. Shmerling",
+          "date": "12. September, 2023",
+          "image_url": "http://content.health.harvard.edu/wp-content/uploads/2023/09/0c491899-9dea-4c4d-be0f-0ddede551079.jpg",
+          "url": "https://www.health.harvard.edu/blog/time-to-redefine-normal-body-temperature-2020031319173",
+          "excerpt": "The Harvard Health article challenges the long-held belief that the normal body temperature is 98.6°F (37°C). Recent studies indicate that the average body temperature has decreased over time, with significant implications for women's health, highlighting the necessity for individualized medical care based on accurate baseline body temperatures.",
+          "description": "The article from Harvard Health explores the outdated assumption that normal body temperature is 98.6°F (37°C) and argues that it's time to redefine this standard. Historically, this temperature is based on data from the 19th century, which may no longer be relevant. Recent research indicates that average body temperatures have decreased, now closer to 97.9°F (36.6°C), particularly among women, who often exhibit lower average temperatures compared to men. These findings have significant implications, as many medical diagnoses and treatments are based on the assumption of a uniform normal body temperature. Women could be misdiagnosed or inadequately treated due to their typically lower body temperatures. The article emphasizes the need to consider gender-specific differences in medicine to improve the accuracy and efficiency of medical treatments. Recognizing individual baseline temperatures is crucial for accurate diagnosis and treatment. For women, a lower average body temperature means that the thresholds for 'elevated temperature' and 'fever' are effectively lower. Consequently, women may require medical intervention sooner when experiencing prolonged elevated temperatures. Understanding personal baseline temperatures is thus crucial for timely and appropriate medical care. It would therefore be very sensible to understand your own basal body temperature, because if the body temperature has decreased in women, the categories for 'elevated temperature' and 'fever' as well as 'high fever' no longer match. This would also mean that women would need medical assistance sooner if they have had a fever for a prolonged period according to the new calculation."
+        }
+    },
+    {
+        "id": 8,
+        "name": "Mythos Mutterinstinkt - Wie moderne Hirnforschung uns von alten Rollenbildern befreit und Elternschaft neu denken lässt - Von Muttertät und Matreszenz",
+        "category": ["Female Health", "Society", "German"],
+        "type": "Book",
+        "icon": "book",
+        "book": {
+            "author": "Annika Rösler",
+            "title": "Mythos Mutterinstinkt - Wie moderne Hirnforschung uns von alten Rollenbildern befreit und Elternschaft neu denken lässt - Von Muttertät und Matreszenz",
+            "cover_url": "https://images.thalia.media/00/-/434cbd6cd4084466891fb2275217fdf3/mythos-mutterinstinkt-taschenbuch-annika-roesler.jpeg",
+            "shopping_url": "https://www.thalia.de/shop/home/artikeldetails/A1066697802",
+            "publication_year": "2023",
+            "excerpt": "Eine kritische Analyse des Mythos des mütterlichen Instinkts und dessen Auswirkungen auf das Leben von Frauen.",
+            "description": "In 'Mythos Mutterinstinkt' entlarvt Annika Rösler den Mythos des mütterlichen Instinkts, ein tief in der Gesellschaft verankertes Konzept. Sie untersucht, wie dieser Mythos das Leben von Frauen* beeinflusst, ihre Rollen, Verhaltensweisen und Selbstwahrnehmungen formt. Rösler argumentiert, dass die Vorstellung einer instinktiven mütterlichen Natur nicht nur veraltet, sondern auch schädlich ist, da sie unrealistische Standards perpetuiert, denen viele Frauen* nicht gerecht werden können. Mit Beispielen aus der Geschichte und aktuellen wissenschaftlichen Studien zeigt sie, wie der Mythos des Mutterinstinkts zu einer ungleichen Verteilung der elterlichen Verantwortung führt und oft dazu benutzt wird, Frauen* in traditionelle Rollen zu drängen. Rösler beleuchtet persönliche Geschichten von Frauen*, die unter dem Druck des Mutterinstinkts leiden, und bietet alternative Sichtweisen an, die die Vielfalt der elterlichen Fähigkeiten anerkennen. Sie diskutiert auch die Auswirkungen auf die Arbeitswelt, wo Frauen* oft benachteiligt werden, wenn sie als die primären Betreuer*in ihrer Kinder betrachtet werden. Rösler fordert ein Umdenken in der Gesellschaft, das sowohl Männer als auch Frauen* ermutigt, sich gleichermaßen an der Kindererziehung zu beteiligen. Sie betont, dass Fürsorge eine erlernte Fähigkeit und keine angeborene Eigenschaft ist und hebt die Bedeutung von Unterstützungssystemen und gesellschaftlichen Veränderungen hervor, um gesunde und erfüllende Eltern-Kind-Beziehungen zu fördern. Das Buch ist ein Plädoyer für eine gerechtere und realistischere Betrachtung von Elternschaft, die auf tatsächlichen Fähigkeiten und nicht auf überholten Geschlechterstereotypen basiert."
         }
     }
 ]
