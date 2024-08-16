@@ -1,7 +1,7 @@
 # Gender Data Gap App
 
 ## Overview
-The **Gender Data Gap App** is a comprehensive web application designed to support women* in their daily lives by providing crucial information and a platform for sharing experiences. The app includes sections on everyday knowledge, period-related information, and a forum for discussions. It is built with React and focuses on sustainability and energy efficiency with a dark-themed design.
+The **Gender Data Gap App** is a comprehensive web application designed to support women* in their daily lives by providing crucial information and a platform for sharing experiences. The app includes sections on everyday knowledge, period-related information. It is built with React and focuses on sustainability and energy efficiency with a dark-themed design.
 
 ## Features
 - **Home**: Introduction to the app and its purpose.
